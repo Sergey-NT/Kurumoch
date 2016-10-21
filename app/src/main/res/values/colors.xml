@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#4CAF50</color>
+    <color name="colorPrimaryDark">#388E3C</color>
+    <color name="colorText">#FFFFFF</color>
+    <color name="colorPrimaryText">#212121</color>
+    <color name="colorSecondaryText">#727272</color>
+    <color name="colorDivider">#B6B6B6</color>
+    <color name="colorAccent">#8BC34A</color>
+    <color name="colorBackgroundGreen">#C8E6C9</color>
+    <color name="colorBackgroundGreenLight">#B9F6CA</color>
+    <color name="colorBackgroundRed">#F8BBD0</color>
+    <color name="colorBackgroundYellow">#FFF9C4</color>
+    <color name="colorBackgroundGrey">#EEEEEE</color>
+    <color name="colorAccentOrange">#FF5722</color>
+    <color name="colorAccentBlue">#448AFF</color>
+    <color name="colorBlackSemiTransparent">#B2000000</color>
+    <color name="colorAsPrimary">#4CAF50</color>
+    <color name="colorAsPrimaryDark">#388E3C</color>
+    <color name="colorAviasalesMain">#4CAF50</color>
+</resources>

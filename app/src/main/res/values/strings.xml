@@ -1,0 +1,87 @@
+<resources>
+    <string name="app_name">Курумоч</string>
+    <string name="tabs_item_arrival">Прибытие</string>
+    <string name="tabs_item_departure">Отправление</string>
+    <string name="tabs_item_search">Поиск авиабилетов</string>
+    <string name="plane_desc_type">Тип воздушного судна:</string>
+    <string name="plane_desc_time_plan">Плановое время:</string>
+    <string name="plane_desc_time_fast">Ожидаемое время:</string>
+    <string name="plane_desc_status">Статус:</string>
+    <string name="plane_desc_baggage">Багаж:</string>
+    <string name="plane_desc_gate">Выход:</string>
+    <string name="plane_desc_check_in">Стойки регистрации:</string>
+    <string name="plane_desc_flight">Рейс</string>
+    <string name="plane_desc_check_in_begin">Начало регистрации:</string>
+    <string name="plane_desc_check_in_end">Окончание регистрации:</string>
+    <string name="about_developer">Разработчик приложения: <a href="http://vk.com/id5170658" title="Сергей Ухарский">Сергей Ухарский</a></string>
+    <string name="about_version">Версия приложения:</string>
+    <string name="about_text">В приложении используются следующие иконки:
+        Airplane free icon made by <a href="http://www.flaticon.com/authors/pixel-buddha" title="Pixel Buddha">Pixel Buddha</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+    </string>
+    <string name="about_text_content">Источник данных: <a href="http://www.airport.samara.ru" title="www.airport.samara.ru">www.airport.samara.ru</a></string>
+    <string name="info_route_desc">Маршрут</string>
+    <string name="info_route_note_desc">* - в скобках указано время Самары</string>
+    <string name="info_airline_desc">Авиакомпания</string>
+    <string name="info_combination_desc">Информация о рейсе</string>
+    <string name="info_type_desc">Тип воздушного судна</string>
+    <string name="info_baggage_desc">Багаж</string>
+    <string name="info_check_in_desc">Регистрация</string>
+    <string name="info_check_in_begin">Начало:</string>
+    <string name="info_check_in_end">Окончание:</string>
+    <string name="info_check_in">Стойка регистрации:</string>
+    <string name="info_check_in_status">Состояние:</string>
+    <string name="info_boarding_desc">Посадка</string>
+    <string name="info_boarding_end_desc">Окончание:</string>
+    <string name="info_boarding_gate_desc">Выход:</string>
+    <string name="info_boarding_status_desc">Состояние:</string>
+    <string name="dialog_title">Информация</string>
+    <string name="dialog_title_new_version">Новая версия</string>
+    <string name="dialog_title_language">Выбор языка</string>
+    <string name="dialog_message">Для того чтобы получать Push уведомления об изменениях в статусе выбранного рейса, удерживайте выбранный рейс до вибрации телефона. Чтобы отключить отслеживание повторно удержите рейс.</string>
+    <string name="dialog_message_new_version">В магазине приложений Google Play появилась новая версия. Обновите приложение Курумоч до последней версии.</string>
+    <string name="dialog_button_positive">Больше не показывать</string>
+    <string name="dialog_button_positive_update">Обновить</string>
+    <string name="dialog_button_positive_language">Сохранить</string>
+    <string name="dialog_button_negative">Напомнить позже</string>
+    <string name="dialog_button_negative_update">Не напоминать</string>
+    <string name="dialog_button_negative_language">Отмена</string>
+    <string name="menu_about">О приложении</string>
+    <string name="menu_settings">Настройки</string>
+    <string name="menu_info_title">Дополнительная информация</string>
+    <string name="menu_info_subtitle">Рейс:</string>
+    <string name="menu_title">аэропорт Курумоч</string>
+    <string name="menu_ads_disable_toast">Оплата за отключение показа рекламы прошла успешно.</string>
+    <string name="menu_billing_not_initialized">Биллинг не инициализирован.</string>
+    <string name="menu_ads_ads_disable_recovery_true">Покупка восстановлена.</string>
+    <string name="menu_ads_ads_disable_recovery_false">Вы не совершали покупки отключения показа рекламы в приложении.</string>
+    <string name="toast_plane_arrive">Рейс прибыл отслеживание информации невозможно</string>
+    <string name="toast_plane_departure">Рейс вылетел отслеживание информации невозможно</string>
+    <string name="toast_plane_tracking">Включено отслеживание информации</string>
+    <string name="toast_cancel_plane_tracking">Отслеживание информации отключено</string>
+    <string name="check_box_update_app">Отменить проверку наличия новой версии при выходе из приложения</string>
+    <string name="check_box_language_ru" translatable="false">Русский</string>
+    <string name="check_box_language_en" translatable="false">English</string>
+    <string name="button_feedback">Оставить отзыв</string>
+    <string name="button_license">Лицензии открытого ПО</string>
+    <string name="button_language">Язык:</string>
+    <string name="button_ads_disable">Отключить рекламу:</string>
+    <string name="button_ads_disable_recovery">Восстановить покупку</string>
+    <string name="button_repeat">Попробовать еще раз</string>
+    <string name="button_clear_edit_text">Очистить</string>
+    <string name="image_tracking" translatable="false">Отслеживать изменения</string>
+    <string name="image_logo" translatable="false">Логотип компании</string>
+    <string name="ad_view_banner" translatable="false">ca-app-pub-3253485608797245/1299109907</string>
+    <string name="analytics_category_button" translatable="false">Button</string>
+    <string name="analytics_action_ads_disable" translatable="false">Отключение рекламы</string>
+    <string name="analytics_action_ads_disable_recovery" translatable="false">Восстановление покупки</string>
+    <string name="analytics_action_feedback" translatable="false">Оставить отзыв</string>
+    <string name="analytics_action_license" translatable="false">Лицензии открытого ПО</string>
+    <string name="analytics_action_clear_text" translatable="false">Очистка от текста поля поиска</string>
+    <string name="analytics_action_repeat" translatable="false">Повторно загрузить данные</string>
+    <string name="analytics_action_refresh" translatable="false">Обновить данные</string>
+    <string name="analytics_action_plane_tacking" translatable="false">Отслеживание самолета</string>
+    <string name="analytics_action_plane_info" translatable="false">Просмотр дополнительной информации о рейсе</string>
+    <string name="main_no_internet">Для работы сервиса нужен доспут к сети Интернет. Проверьте подключение к сети и повторите попытку.</string>
+    <string name="main_load_dialog">Пожалуйста, подождите…</string>
+    <string name="edit_text_hint">Начните ввод названия города или номера рейса</string>
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar" />
+
+    <style name="AppDefault" parent="AppTheme">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlNormal">@color/colorSecondaryText</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="AppLauncherTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:background">@drawable/launch_screen</item>
+    </style>
+
+    <style name="menu_labels_style">
+        <item name="android:background">@drawable/fab_label_background</item>
+        <item name="android:textColor">@color/colorText</item>
+    </style>
+</resources>

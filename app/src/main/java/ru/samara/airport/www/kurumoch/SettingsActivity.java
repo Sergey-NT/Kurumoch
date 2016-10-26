@@ -29,8 +29,8 @@ public class SettingsActivity extends AppCompatActivity implements BillingProces
 
     private static final int LAYOUT = R.layout.activity_settings;
 
-    private static final String PRODUCT_ID = "www.airportnn.ru.ads.disable";
-    private static final String LICENSE_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr5+5Gycjt7vs98nW6w9CUpmISMI5rKUw4n5Jn0Ae7jncioUzB2oAmw563gL0hOMMsJHKLLNPBKAySlMygwi4LvLZlEtN3PDSiqxOd0D5G6+3qv7MAczRlsARmLQN+HN6+lc0jx1E84UkVH0sOr2lvZtbjxNO/TvZLwvoT7TApAcnGrURSrWiuFtiq6YiGTDCGD3+pHAB4M1eWHGpgLSXRptNXLYfsEhyQMYQ0OfK9QDgUTVKJ238FyX5vZ9XFxDwRjw3FnU0WlKoSiERKZMA9EGffc7fYtemppjdIWx3bfUEFir3sT6uu21R4W+hl5ZdiPX9CNZaIgnJIYjA+RkGuQIDAQAB";
+    private static final String PRODUCT_ID = "www.airport.samara.ru.ads.disable";
+    private static final String LICENSE_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArhVXYpo3/I7o/ar/b/a3yDkyBZjLRpHivo+ED5ozZyGo+dkVAmQOCufHubSAFpyT18jet2KQzcTIJvw40axNcfVz+KVh522mr9KNpufDmKJNcXG5Vr1B0fmAxLblCgWtuHH4MxN+O5UElzV/V+2x2MM6m1yZ3WU5NBX2wpJobOCciLk9avzUx/etTPm0rgdj+lMhLHVZ+nFGqtcuILqNw7rgaF9Wh9G6anD74MPFlLCQzUd25QyZbKcdKca15nTUgv3FSPfYNkV7MeTdHRJUJBBdR4VcqujojTpPQQIB0bjX8pnu1XM9l/2uauT1+KcwvZ/sT1rlg2Uyps/ze+Ot4QIDAQAB";
     private static final String MERCHANT_ID = "09670604812027174402";
 
     private BillingProcessor bp;
@@ -244,7 +244,7 @@ public class SettingsActivity extends AppCompatActivity implements BillingProces
                 .build());
 
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("market://details?id=ru.airportnn.www.strigino"));
+        intent.setData(Uri.parse("market://details?id=ru.samara.airport.www.kurumoch"));
         startActivity(intent);
     }
 

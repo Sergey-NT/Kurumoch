@@ -76,10 +76,11 @@ public class AppController extends Application {
         Configuration config = new Configuration();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             setSystemLocale(config, locale);
+            updateConfiguration(config);
         }else{
             setSystemLocaleLegacy(config, locale);
+            updateConfigurationLegacy(config);
         }
-        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
     }
 
     @Override
@@ -90,11 +91,13 @@ public class AppController extends Application {
             Configuration config = new Configuration(newConfig);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                 setSystemLocale(config, locale);
+                Locale.setDefault(locale);
+                updateConfiguration(newConfig);
             }else{
                 setSystemLocaleLegacy(config, locale);
+                Locale.setDefault(locale);
+                updateConfigurationLegacy(newConfig);
             }
-            Locale.setDefault(locale);
-            getBaseContext().getResources().updateConfiguration(newConfig, getBaseContext().getResources().getDisplayMetrics());
         }
     }
 
@@ -129,5 +132,15 @@ public class AppController extends Application {
     @TargetApi(Build.VERSION_CODES.N)
     public void setSystemLocale(Configuration config, Locale locale){
         config.setLocale(locale);
+    }
+
+    @SuppressWarnings("deprecation")
+    private void updateConfigurationLegacy(Configuration config) {
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+    }
+
+    @TargetApi(Build.VERSION_CODES.N)
+    private void updateConfiguration(Configuration config) {
+        getBaseContext().createConfigurationContext(config);
     }
 }

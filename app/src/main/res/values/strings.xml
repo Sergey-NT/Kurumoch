@@ -71,6 +71,7 @@
     <string name="image_tracking" translatable="false">Отслеживать изменения</string>
     <string name="image_logo" translatable="false">Логотип компании</string>
     <string name="ad_view_banner" translatable="false">ca-app-pub-3253485608797245/1299109907</string>
+    <string name="app_identifier" translatable="false">ca-app-pub-3253485608797245~8822376704</string>
     <string name="analytics_category_button" translatable="false">Button</string>
     <string name="analytics_action_ads_disable" translatable="false">Отключение рекламы</string>
     <string name="analytics_action_ads_disable_recovery" translatable="false">Восстановление покупки</string>

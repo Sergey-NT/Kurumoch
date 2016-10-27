@@ -26,6 +26,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
 import com.google.android.gms.common.ConnectionResult;
@@ -75,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
         boolean adDisable = settings.getBoolean(Constants.APP_PREFERENCES_ADS_DISABLE, false);
 
         if (!adDisable) {
+            MobileAds.initialize(getApplicationContext(), getString(R.string.app_identifier));
             initAd(R.id.main_activity_layout);
         }
         mRegistrationBroadcastReceiver = new BroadcastReceiver() {

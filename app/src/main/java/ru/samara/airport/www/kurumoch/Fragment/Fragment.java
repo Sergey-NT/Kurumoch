@@ -242,7 +242,7 @@ public class Fragment extends android.support.v4.app.Fragment {
                 String planeDirection = tvPlaneDirection.getText().toString();
                 String planeTimePlan = tvPlaneTimePlan.getText().toString();
                 String planeTimeFact = tvPlaneTimeFact.getText().toString();
-                String planeStatus = tvPlaneStatus.getText().toString();
+                String planeStatus = tvPlaneStatus.getText().toString().substring(0,1) + tvPlaneStatus.getText().toString().substring(1).toLowerCase();
 
                 Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
                 vibrator.vibrate(50);

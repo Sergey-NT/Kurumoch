@@ -1,5 +1,6 @@
 package ru.samara.airport.www.kurumoch;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -24,10 +25,12 @@ import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 
 import ru.samara.airport.www.kurumoch.Fragment.LanguageFragment;
+import ru.samara.airport.www.kurumoch.Fragment.ThemeDialogFragment;
 
 public class SettingsActivity extends AppCompatActivity implements BillingProcessor.IBillingHandler {
 
     private static final int LAYOUT = R.layout.activity_settings;
+    private static final int APP_THEME = R.style.AppDefault;
 
     private static final String PRODUCT_ID = "www.airport.samara.ru.ads.disable";
     private static final String LICENSE_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArhVXYpo3/I7o/ar/b/a3yDkyBZjLRpHivo+ED5ozZyGo+dkVAmQOCufHubSAFpyT18jet2KQzcTIJvw40axNcfVz+KVh522mr9KNpufDmKJNcXG5Vr1B0fmAxLblCgWtuHH4MxN+O5UElzV/V+2x2MM6m1yZ3WU5NBX2wpJobOCciLk9avzUx/etTPm0rgdj+lMhLHVZ+nFGqtcuILqNw7rgaF9Wh9G6anD74MPFlLCQzUd25QyZbKcdKca15nTUgv3FSPfYNkV7MeTdHRJUJBBdR4VcqujojTpPQQIB0bjX8pnu1XM9l/2uauT1+KcwvZ/sT1rlg2Uyps/ze+Ot4QIDAQAB";
@@ -43,7 +46,10 @@ public class SettingsActivity extends AppCompatActivity implements BillingProces
     @Override
     @SuppressWarnings("ConstantConditions")
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        setTheme(R.style.AppDefault);
+        settings = getSharedPreferences(Constants.APP_PREFERENCES, Context.MODE_PRIVATE);
+        int appTheme = settings.getInt(Constants.APP_PREFERENCES_APP_THEME, APP_THEME);
+        setTheme(appTheme);
+
         super.onCreate(savedInstanceState);
         setContentView(LAYOUT);
 
@@ -59,7 +65,6 @@ public class SettingsActivity extends AppCompatActivity implements BillingProces
         Button btnFeedback = (Button) findViewById(R.id.btnFeedback);
         CheckBox checkBoxUpdate = (CheckBox) findViewById(R.id.checkBoxUpdate);
 
-        settings = getSharedPreferences(Constants.APP_PREFERENCES, Context.MODE_PRIVATE);
         Boolean update = settings.getBoolean(Constants.APP_PREFERENCES_CANCEL_CHECK_VERSION, false);
         String price = settings.getString(Constants.APP_PREFERENCES_ADS_DISABLE_PRICE, "");
         String buttonPriceText = getString(R.string.button_ads_disable) + " " + price;
@@ -243,14 +248,24 @@ public class SettingsActivity extends AppCompatActivity implements BillingProces
                 .setAction(getString(R.string.analytics_action_feedback))
                 .build());
 
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("market://details?id=ru.samara.airport.www.kurumoch"));
-        startActivity(intent);
+        Uri uri = Uri.parse("market://details?id=" + getPackageName());
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        try {
+            startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            showToast(getString(R.string.toast_error_google_play));
+        }
     }
 
-    public void bntLanguageOnClick (View view) {
+    public void btnLanguageOnClick (View view) {
         FragmentManager manager = getSupportFragmentManager();
         LanguageFragment dialogFragment = new LanguageFragment();
+        dialogFragment.show(manager, "dialog");
+    }
+
+    public void btnThemeOnClick (View view) {
+        FragmentManager manager = getSupportFragmentManager();
+        ThemeDialogFragment dialogFragment = new ThemeDialogFragment();
         dialogFragment.show(manager, "dialog");
     }
 

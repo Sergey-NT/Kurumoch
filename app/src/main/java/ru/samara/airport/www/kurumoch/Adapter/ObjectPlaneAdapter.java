@@ -1,6 +1,7 @@
 package ru.samara.airport.www.kurumoch.Adapter;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +10,6 @@ import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -52,7 +52,6 @@ public class ObjectPlaneAdapter extends BaseAdapter implements Filterable {
         private TextView descriptionCheckIn;
         private TextView descriptionCheckInBegin;
         private TextView descriptionCheckInEnd;
-        private RelativeLayout relativeLayout;
         private ImageView imageViewTracking;
         private ImageView imageViewLogo;
     }
@@ -120,7 +119,6 @@ public class ObjectPlaneAdapter extends BaseAdapter implements Filterable {
             holder.descriptionCheckIn = (TextView) view.findViewById(R.id.tvPlaneCheckInDesc);
             holder.descriptionCheckInBegin = (TextView) view.findViewById(R.id.tvPlaneCheckInBeginDesc);
             holder.descriptionCheckInEnd = (TextView) view.findViewById(R.id.tvPlaneCheckInEndDesc);
-            holder.relativeLayout = (RelativeLayout) view.findViewById(R.id.listViewItem);
             holder.imageViewTracking = (ImageView) view.findViewById(R.id.imageTracking);
             holder.imageViewLogo = (ImageView) view.findViewById(R.id.imageLogo);
 
@@ -181,42 +179,63 @@ public class ObjectPlaneAdapter extends BaseAdapter implements Filterable {
         holder.descriptionGate.setVisibility(View.GONE);
 
         String status = holder.itemStatus.getText().toString();
+        String statusUpperCase = status.toUpperCase();
 
-        if (status.contains("Прибыл") || status.contains("Arrived")) {
-            holder.relativeLayout.setBackgroundColor(ContextCompat.getColor(context, R.color.colorBackgroundGreen));
-            if (holder.itemBaggageStatus.length() > 1) {
-                holder.itemBaggageStatus.setVisibility(View.VISIBLE);
-                holder.descriptionBaggage.setVisibility(View.VISIBLE);
-            }
-        } else if (status.contains("Вылетел") || status.contains("Departed")) {
-            holder.relativeLayout.setBackgroundColor(ContextCompat.getColor(context, R.color.colorBackgroundGreen));
-        } else if (status.contains("Идет посадка") || status.contains("Boarding") || status.contains("Регистрация закончена") || status.contains("Check-in-close")) {
-            holder.relativeLayout.setBackgroundColor(ContextCompat.getColor(context, R.color.colorBackgroundGreenLight));
+        int colorGreen = ContextCompat.getColor(context, R.color.colorPrimaryLightGreen);
+        int colorRed = ContextCompat.getColor(context, R.color.colorPrimaryRed);
+        int colorOrange = ContextCompat.getColor(context, R.color.colorPrimaryDarkAmber);
+
+        holder.itemStatus.setTextColor(colorGreen);
+        holder.itemStatus.setText(statusUpperCase);
+        holder.itemStatus.setTypeface(null, Typeface.BOLD);
+        holder.itemBaggageStatus.setTextColor(colorGreen);
+        holder.itemBaggageStatus.setText(holder.itemBaggageStatus.getText().toString().toUpperCase());
+        holder.itemBaggageStatus.setTypeface(null, Typeface.BOLD);
+        holder.itemGate.setTextColor(colorGreen);
+        holder.itemGate.setText(holder.itemGate.getText().toString().toUpperCase());
+        holder.itemGate.setTypeface(null, Typeface.BOLD);
+        holder.itemCheckInBegin.setTextColor(colorGreen);
+        holder.itemCheckInBegin.setText(holder.itemCheckInBegin.getText().toString().toUpperCase());
+        holder.itemCheckInBegin.setTypeface(null, Typeface.BOLD);
+        holder.itemCheckInEnd.setTextColor(colorGreen);
+        holder.itemCheckInEnd.setText(holder.itemCheckInEnd.getText().toString().toUpperCase());
+        holder.itemCheckInEnd.setTypeface(null, Typeface.BOLD);
+        holder.itemCheckIn.setTextColor(colorGreen);
+        holder.itemCheckIn.setText(holder.itemCheckIn.getText().toString().toUpperCase());
+        holder.itemCheckIn.setTypeface(null, Typeface.BOLD);
+
+        if (holder.itemBaggageStatus.length() > 1) {
+            holder.itemBaggageStatus.setVisibility(View.VISIBLE);
+            holder.descriptionBaggage.setVisibility(View.VISIBLE);
+        }
+
+        if (holder.itemStatus.length() < 2) {
+            holder.itemStatus.setVisibility(View.GONE);
+            holder.descriptionStatus.setVisibility(View.GONE);
+        }
+
+        if (status.contains("Идет посадка") || status.contains("Boarding") || status.contains("Регистрация закончена") || status.contains("Check-in-close")) {
             holder.itemGate.setVisibility(View.VISIBLE);
             holder.descriptionGate.setVisibility(View.VISIBLE);
         } else if (status.contains("Идет регистрация") || status.contains("Check-in-open")) {
-            holder.relativeLayout.setBackgroundColor(ContextCompat.getColor(context, R.color.colorBackgroundGreenLight));
-            holder.itemCheckInBegin.setVisibility(View.VISIBLE);
-            holder.descriptionCheckInBegin.setVisibility(View.VISIBLE);
-            holder.itemCheckInEnd.setVisibility(View.VISIBLE);
-            holder.descriptionCheckInEnd.setVisibility(View.VISIBLE);
-            holder.itemCheckIn.setVisibility(View.VISIBLE);
-            holder.descriptionCheckIn.setVisibility(View.VISIBLE);
             holder.itemGate.setVisibility(View.VISIBLE);
+            holder.itemCheckIn.setVisibility(View.VISIBLE);
+            holder.itemCheckInEnd.setVisibility(View.VISIBLE);
+            holder.itemCheckInBegin.setVisibility(View.VISIBLE);
             holder.descriptionGate.setVisibility(View.VISIBLE);
-        } else if (status.contains("Посадка закончена") || status.contains("Gate closed")) {
-            holder.relativeLayout.setBackgroundColor(ContextCompat.getColor(context, R.color.colorBackgroundGreenLight));
+            holder.descriptionCheckIn.setVisibility(View.VISIBLE);
+            holder.descriptionCheckInEnd.setVisibility(View.VISIBLE);
+            holder.descriptionCheckInBegin.setVisibility(View.VISIBLE);
         } else if (status.contains("Отмена") || status.contains("Cancelled")) {
-            holder.relativeLayout.setBackgroundColor(ContextCompat.getColor(context, R.color.colorBackgroundRed));
+            holder.itemBaggageStatus.setVisibility(View.GONE);
+            holder.descriptionBaggage.setVisibility(View.GONE);
+            holder.itemStatus.setTextColor(colorRed);
         } else if (status.contains("Задержка") || status.contains("Delayed")) {
-            holder.relativeLayout.setBackgroundColor(ContextCompat.getColor(context, R.color.colorBackgroundYellow));
-        } else {
-            holder.relativeLayout.setBackgroundColor(ContextCompat.getColor(context, R.color.colorText));
-            if (holder.itemStatus.length() < 2) {
-                holder.itemStatus.setVisibility(View.GONE);
-                holder.descriptionStatus.setVisibility(View.GONE);
-            }
+            holder.itemBaggageStatus.setVisibility(View.GONE);
+            holder.descriptionBaggage.setVisibility(View.GONE);
+            holder.itemStatus.setTextColor(colorOrange);
         }
+
         setAirlineLogo(holder);
         return view;
     }
@@ -421,6 +440,18 @@ public class ObjectPlaneAdapter extends BaseAdapter implements Filterable {
                 break;
             case "KI-":
                 holder.imageViewLogo.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.drawable_logo_krasavia));
+                break;
+            case "SQ-":
+                holder.imageViewLogo.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.drawable_logo_singapore_airlines));
+                break;
+            case "6W-":
+                holder.imageViewLogo.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.drawable_logo_saratov_airlines));
+                break;
+            case "5N-":
+                holder.imageViewLogo.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.drawable_logo_nordavia));
+                break;
+            case "LO-":
+                holder.imageViewLogo.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.drawable_logo_lot_polish_airlines));
                 break;
             default:
                 holder.imageViewLogo.setVisibility(View.GONE);

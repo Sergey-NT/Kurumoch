@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="UnusedAttribute"
     android:opacity="opaque">
-    <item android:drawable="@color/colorPrimary"/>
+    <item android:drawable="@color/colorPrimaryText"/>
     <item>
         <bitmap
             android:src="@mipmap/ic_launcher_logo"

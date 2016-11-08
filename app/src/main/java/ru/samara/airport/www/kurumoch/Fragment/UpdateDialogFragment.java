@@ -1,6 +1,7 @@
 package ru.samara.airport.www.kurumoch.Fragment;
 
 import android.app.Dialog;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -10,6 +11,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
+import android.widget.Toast;
 
 import ru.samara.airport.www.kurumoch.Constants;
 import ru.samara.airport.www.kurumoch.R;
@@ -30,26 +32,26 @@ public class UpdateDialogFragment extends DialogFragment {
                         editor.apply();
 
                         dialog.cancel();
-                        getActivity().finish();
                     }
                 })
                 .setPositiveButton(getString(R.string.dialog_button_positive_update), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        Intent intent = new Intent(Intent.ACTION_VIEW);
-                        intent.setData(Uri.parse("market://details?id=ru.samara.airport.www.kurumoch"));
-                        startActivity(intent);
-
-                        dialog.cancel();
-                        getActivity().finish();
+                        Uri uri = Uri.parse("market://details?id=" + getActivity().getPackageName());
+                        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                        try {
+                            dialog.cancel();
+                            startActivity(intent);
+                        } catch (ActivityNotFoundException e) {
+                            dialog.cancel();
+                            showToast(getString(R.string.toast_error_google_play));
+                        }
                     }
                 });
 
         return builder.create();
     }
 
-    @Override
-    public void onDismiss(DialogInterface dialog) {
-        super.onDismiss(dialog);
-        getActivity().finish();
+    private void showToast(String message) {
+        Toast.makeText(getActivity().getApplication(), message, Toast.LENGTH_LONG).show();
     }
 }

@@ -1,21 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#4CAF50</color>
-    <color name="colorPrimaryDark">#388E3C</color>
+    <!-- Цвета темы оформления Red -->
+    <color name="colorPrimaryRed">#F44336</color>
+    <color name="colorPrimaryDarkRed">#D32F2F</color>
+    <color name="colorBackgroundRed">#FFCDD2</color>
+
+    <!-- Цвета темы оформления Pink -->
+    <color name="colorPrimaryPink">#E91E63</color>
+    <color name="colorPrimaryDarkPink">#C2185B</color>
+    <color name="colorBackgroundPink">#F8BBD0</color>
+
+    <!-- Цвета темы оформления Purple -->
+    <color name="colorPrimaryPurple">#9C27B0</color>
+    <color name="colorPrimaryDarkPurple">#7B1FA2</color>
+    <color name="colorBackgroundPurple">#E1BEE7</color>
+
+    <!-- Цвета темы оформления Deep Purple -->
+    <color name="colorPrimaryDeepPurple">#673AB7</color>
+    <color name="colorPrimaryDarkDeepPurple">#512DA8</color>
+    <color name="colorBackgroundDeepPurple">#D1C4E9</color>
+
+    <!-- Цвета темы оформления Indigo -->
+    <color name="colorPrimaryIndigo">#3F51B5</color>
+    <color name="colorPrimaryDarkIndigo">#303F9F</color>
+    <color name="colorBackgroundIndigo">#C5CAE9</color>
+
+    <!-- Цвета темы оформления Blue -->
+    <color name="colorPrimaryBlue">#2196F3</color>
+    <color name="colorPrimaryDarkBlue">#1976D2</color>
+    <color name="colorBackgroundBlue">#BBDEFB</color>
+
+    <!-- Цвета темы оформления Light Blue -->
+    <color name="colorPrimaryLightBlue">#03A9F4</color>
+    <color name="colorPrimaryDarkLightBlue">#0288D1</color>
+    <color name="colorBackgroundLightBlue">#B3E5FC</color>
+
+    <!-- Цвета темы оформления Cyan -->
+    <color name="colorPrimaryCyan">#00BCD4</color>
+    <color name="colorPrimaryDarkCyan">#0097A7</color>
+    <color name="colorBackgroundCyan">#B2EBF2</color>
+
+    <!-- Цвета темы оформления Teal -->
+    <color name="colorPrimaryTeal">#009688</color>
+    <color name="colorPrimaryDarkTeal">#00796B</color>
+    <color name="colorBackgroundTeal">#B2DFDB</color>
+
+    <!-- Цвета темы оформления Green -->
+    <color name="colorPrimaryGreen">#4CAF50</color>
+    <color name="colorPrimaryDarkGreen">#388E3C</color>
+    <color name="colorBackgroundGreen">#C8E6C9</color>
+
+    <!-- Цвета темы оформления Light Green -->
+    <color name="colorPrimaryLightGreen">#8BC34A</color>
+    <color name="colorPrimaryDarkLightGreen">#689F38</color>
+    <color name="colorBackgroundLightGreen">#DCEDC8</color>
+
+    <!-- Цвета темы оформления Lime -->
+    <color name="colorPrimaryLime">#CDDC39</color>
+    <color name="colorPrimaryDarkLime">#AFB42B</color>
+    <color name="colorBackgroundLime">#F0F4C3</color>
+
+    <!-- Цвета темы оформления Yellow -->
+    <color name="colorPrimaryYellow">#FFEB3B</color>
+    <color name="colorPrimaryDarkYellow">#FBC02D</color>
+    <color name="colorBackgroundYellow">#FFF9C4</color>
+
+    <!-- Цвета темы оформления Amber -->
+    <color name="colorPrimaryAmber">#FFC107</color>
+    <color name="colorPrimaryDarkAmber">#FFA000</color>
+    <color name="colorBackgroundAmber">#FFECB3</color>
+
+    <!-- Цвета темы оформления Orange -->
+    <color name="colorPrimaryOrange">#FF9800</color>
+    <color name="colorPrimaryDarkOrange">#F57C00</color>
+    <color name="colorBackgroundOrange">#FFE0B2</color>
+
+    <!-- Цвета темы оформления Deep Orange -->
+    <color name="colorPrimaryDeepOrange">#FF5722</color>
+    <color name="colorPrimaryDarkDeepOrange">#E64A19</color>
+    <color name="colorBackgroundDeepOrange">#FFCCBC</color>
+
+    <!-- Цвета темы оформления Brown -->
+    <color name="colorPrimaryBrown">#795548</color>
+    <color name="colorPrimaryDarkBrown">#5D4037</color>
+    <color name="colorBackgroundBrown">#D7CCC8</color>
+
+    <!-- Цвета темы оформления Blue Grey -->
+    <color name="colorPrimaryBlueGrey">#607D8B</color>
+    <color name="colorPrimaryDarkBlueGrey">#455A64</color>
+    <color name="colorBackgroundBlueGrey">#CFD8DC</color>
+
+    <!-- Цвета темы оформления Grey -->
+    <color name="colorPrimaryGrey">#9E9E9E</color>
+    <color name="colorPrimaryDarkGrey">#616161</color>
+    <color name="colorBackgroundGrey">#F5F5F5</color>
+
+    <!-- Цвета оформления текста и разделителя -->
     <color name="colorText">#FFFFFF</color>
     <color name="colorPrimaryText">#212121</color>
-    <color name="colorSecondaryText">#727272</color>
-    <color name="colorDivider">#B6B6B6</color>
-    <color name="colorAccent">#8BC34A</color>
-    <color name="colorBackgroundGreen">#C8E6C9</color>
-    <color name="colorBackgroundGreenLight">#B9F6CA</color>
-    <color name="colorBackgroundRed">#F8BBD0</color>
-    <color name="colorBackgroundYellow">#FFF9C4</color>
-    <color name="colorBackgroundGrey">#EEEEEE</color>
-    <color name="colorAccentOrange">#FF5722</color>
-    <color name="colorAccentBlue">#448AFF</color>
+    <color name="colorSecondaryText">#757575</color>
+    <color name="colorDivider">#BDBDBD</color>
+
+    <!-- Цвет фона фильтра даты -->
     <color name="colorBlackSemiTransparent">#B2000000</color>
+
+    <!-- Цвет оформления Material Drawer -->
+    <color name="material_drawer_primary">#4CAF50</color>
+
+    <!-- Цвета оформления Aviasales -->
     <color name="colorAsPrimary">#4CAF50</color>
-    <color name="colorAsPrimaryDark">#388E3C</color>
+    <color name="colorAsPrimaryDark">#4CAF50</color>
     <color name="colorAviasalesMain">#4CAF50</color>
 </resources>

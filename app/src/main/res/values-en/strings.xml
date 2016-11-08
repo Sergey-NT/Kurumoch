@@ -68,4 +68,14 @@
     <string name="dialog_title_language">Language</string>
     <string name="menu_settings">Settings</string>
     <string name="tabs_item_search">Flight search</string>
+    <string name="dialog_title_theme">Themes</string>
+    <string name="toast_error_google_play">Google Play app not found</string>
+    <string name="toast_token">Error registration tracking</string>
+    <string name="menu_strigino">Strigino</string>
+    <string name="menu_strigino_subtitle">Nizhny Novgorod</string>
+    <string name="menu_title_right">Online flight info</string>
+    <string name="menu_rostov_on_don">Rostov-on-Don</string>
+    <string name="menu_other_airports">Other airports</string>
+    <string name="menu_koltsovo_subtitle">Ekaterinburg</string>
+    <string name="menu_koltsovo">Koltsovo</string>
 </resources>

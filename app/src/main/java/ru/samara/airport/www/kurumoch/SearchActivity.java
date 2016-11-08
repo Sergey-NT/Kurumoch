@@ -1,5 +1,7 @@
 package ru.samara.airport.www.kurumoch;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -17,13 +19,17 @@ import ru.aviasales.template.ui.fragment.AviasalesFragment;
 public class SearchActivity extends AppCompatActivity {
 
     private static final int LAYOUT = R.layout.activity_search;
+    private static final int APP_THEME = R.style.AppDefault;
     private final static String TRAVEL_PAYOUTS_MARKER = "64818";
     private final static String TRAVEL_PAYOUTS_TOKEN = "56006c981e1ebbcff3430c6ef2519b1f";
     private AviasalesFragment aviasalesFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.AppDefault);
+        SharedPreferences settings = getSharedPreferences(Constants.APP_PREFERENCES, Context.MODE_PRIVATE);
+        int appTheme = settings.getInt(Constants.APP_PREFERENCES_APP_THEME, APP_THEME);
+        setTheme(appTheme);
+
         super.onCreate(savedInstanceState);
 
         AviasalesSDK.getInstance().init(this, new IdentificationData(TRAVEL_PAYOUTS_MARKER, TRAVEL_PAYOUTS_TOKEN));

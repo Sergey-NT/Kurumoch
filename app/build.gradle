@@ -7,8 +7,8 @@ android {
         applicationId "ru.samara.airport.www.kurumoch"
         minSdkVersion 10
         targetSdkVersion 25
-        versionCode 4
-        versionName "1.0.0"
+        versionCode 5
+        versionName "1.0.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -47,7 +47,7 @@ dependencies {
     }
     compile 'com.mikepenz:google-material-typeface:2.2.0.3.original@aar'
     compile 'de.psdev.licensesdialog:licensesdialog:1.8.1'
-    compile 'ch.acra:acra:4.9.0'
+    compile 'ch.acra:acra:4.9.1'
     compile 'net.i2p.android.ext:floatingactionbutton:1.10.1'
     compile 'ru.aviasales:aviasalesSdk:2.1.7-sdk'
     compile 'ru.aviasales.template:aviasalesSdkTemplate:2.1.7'

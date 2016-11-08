@@ -1,5 +1,7 @@
 package ru.samara.airport.www.kurumoch;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -19,11 +21,15 @@ import com.google.android.gms.analytics.Tracker;
 public class InfoActivity extends AppCompatActivity {
 
     private static final int LAYOUT = R.layout.activity_info;
+    private static final int APP_THEME = R.style.AppDefault;
 
     @Override
     @SuppressWarnings("ConstantConditions")
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.AppDefault);
+        SharedPreferences settings = getSharedPreferences(Constants.APP_PREFERENCES, Context.MODE_PRIVATE);
+        int appTheme = settings.getInt(Constants.APP_PREFERENCES_APP_THEME, APP_THEME);
+        setTheme(appTheme);
+
         super.onCreate(savedInstanceState);
         setContentView(LAYOUT);
 

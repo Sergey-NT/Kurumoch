@@ -1,5 +1,7 @@
 package ru.samara.airport.www.kurumoch;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -18,11 +20,15 @@ import de.psdev.licensesdialog.LicensesDialog;
 public class AboutActivity extends AppCompatActivity {
 
     private static final int LAYOUT = R.layout.activity_about;
+    private static final int APP_THEME = R.style.AppDefault;
 
     @Override
     @SuppressWarnings("ConstantConditions")
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.AppDefault);
+        SharedPreferences settings = getSharedPreferences(Constants.APP_PREFERENCES, Context.MODE_PRIVATE);
+        int appTheme = settings.getInt(Constants.APP_PREFERENCES_APP_THEME, APP_THEME);
+        setTheme(appTheme);
+
         super.onCreate(savedInstanceState);
         setContentView(LAYOUT);
 

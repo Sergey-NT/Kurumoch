@@ -217,69 +217,7 @@ public class Fragment extends android.support.v4.app.Fragment {
                 TextView tvCheckIn = (TextView) rl.getChildAt(20);
                 TextView tvGate = (TextView) rl.getChildAt(22);
 
-                String planeCombination = null;
-                String checkInBegin = null;
-                String checkInEnd = null;
-                String checkIn = null;
-                String checkInStatus = null;
-                String baggageStatus = null;
-                String boardingEnd = null;
-                String boardingGate = null;
-                String boardingStatus = null;
-
-                String planeFlight = tvPlaneFlight.getText().toString();
-                String planeDirection = tvPlaneDirection.getText().toString();
-                String planeType = tvPlaneType.getText().toString();
-
-                String planeRoute = tvPlaneFlight.getTag().toString();
-                String planeRouteStatus = tvPlaneDirection.getTag().toString();
-                String planeAirline = tvPlaneStatus.getTag().toString();
-
-                if (tvPlaneCombination != null) {
-                    planeCombination = tvPlaneCombination.getText().toString();
-                }
-                if (tvCheckInBegin != null) {
-                    checkInBegin = tvCheckInBegin.getText().toString();
-                }
-                if (tvCheckInEnd != null) {
-                    checkInEnd = tvCheckInEnd.getText().toString();
-                }
-                if (tvCheckIn != null) {
-                    checkIn = tvCheckIn.getText().toString();
-                }
-                if (tvPlaneType.getTag() != null) {
-                    checkInStatus = tvPlaneType.getTag().toString();
-                }
-                if (tvBaggageStatus != null) {
-                    baggageStatus = tvBaggageStatus.getText().toString();
-                }
-                if (tvPlaneTimePlan.getTag() != null) {
-                    boardingEnd = tvPlaneTimePlan.getTag().toString();
-                }
-                if (tvGate != null) {
-                    boardingGate = tvGate.getText().toString();
-                }
-                if (tvPlaneTimeFact.getTag() != null) {
-                    boardingStatus = tvPlaneTimeFact.getTag().toString();
-                }
-
-                Intent intent = new Intent(getActivity(), InfoActivity.class);
-                intent.putExtra("planeFlight", planeFlight);
-                intent.putExtra("planeDirection", planeDirection);
-                intent.putExtra("planeRoute", planeRoute);
-                intent.putExtra("planeRouteStatus", planeRouteStatus);
-                intent.putExtra("planeCombination", planeCombination);
-                intent.putExtra("planeType", planeType);
-                intent.putExtra("planeAirline", planeAirline);
-                intent.putExtra("baggageStatus", baggageStatus);
-                intent.putExtra("checkInBegin", checkInBegin);
-                intent.putExtra("checkInEnd", checkInEnd);
-                intent.putExtra("checkIn", checkIn);
-                intent.putExtra("checkInStatus", checkInStatus);
-                intent.putExtra("boardingEnd", boardingEnd);
-                intent.putExtra("boardingGate", boardingGate);
-                intent.putExtra("boardingStatus", boardingStatus);
-                startActivity(intent);
+                startInfoActivity(tvPlaneFlight, tvPlaneDirection, tvPlaneCombination, tvPlaneType, tvPlaneTimePlan, tvPlaneTimeFact, tvPlaneStatus, tvBaggageStatus, tvCheckInBegin, tvCheckInEnd, tvCheckIn, tvGate);
             }
         });
 
@@ -335,41 +273,121 @@ public class Fragment extends android.support.v4.app.Fragment {
         });
     }
 
-    private void sendDeleteQueryToDb(String... params) {
-        String timePlane = Uri.encode(params[3]);
-        String url = "http://www.avtovokzal.org/php/app_kurumoch/deleteQuery.php?token="+params[0]+"&direction="+params[1]+"&flight="+params[2]+"&time_plan="+timePlane;
+    private void startInfoActivity(TextView tvPlaneFlight, TextView tvPlaneDirection, TextView tvPlaneCombination, TextView tvPlaneType, TextView tvPlaneTimePlan, TextView tvPlaneTimeFact, TextView tvPlaneStatus, TextView tvBaggageStatus, TextView tvCheckInBegin, TextView tvCheckInEnd, TextView tvCheckIn, TextView tvGate) {
+        String planeCombination = null;
+        String checkInBegin = null;
+        String checkInEnd = null;
+        String checkIn = null;
+        String checkInStatus = null;
+        String baggageStatus = null;
+        String boardingEnd = null;
+        String boardingGate = null;
+        String boardingStatus = null;
 
-        StringRequest strReq = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {}
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {}
-        });
-        // Установливаем TimeOut, Retry
-        strReq.setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS, 3, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        // Добавляем запрос в очередь
-        AppController.getInstance().addToRequestQueue(strReq);
+        String planeFlight = tvPlaneFlight.getText().toString();
+        String planeDirection = tvPlaneDirection.getText().toString();
+        String planeType = tvPlaneType.getText().toString();
+
+        String planeRoute = tvPlaneFlight.getTag().toString();
+        String planeRouteStatus = tvPlaneDirection.getTag().toString();
+        String planeAirline = tvPlaneStatus.getTag().toString();
+
+        if (tvPlaneCombination != null) {
+            planeCombination = tvPlaneCombination.getText().toString();
+        }
+        if (tvCheckInBegin != null) {
+            checkInBegin = tvCheckInBegin.getText().toString();
+        }
+        if (tvCheckInEnd != null) {
+            checkInEnd = tvCheckInEnd.getText().toString();
+        }
+        if (tvCheckIn != null) {
+            checkIn = tvCheckIn.getText().toString();
+        }
+        if (tvPlaneType.getTag() != null) {
+            checkInStatus = tvPlaneType.getTag().toString();
+        }
+        if (tvBaggageStatus != null) {
+            baggageStatus = tvBaggageStatus.getText().toString();
+        }
+        if (tvPlaneTimePlan.getTag() != null) {
+            boardingEnd = tvPlaneTimePlan.getTag().toString();
+        }
+        if (tvGate != null) {
+            boardingGate = tvGate.getText().toString();
+        }
+        if (tvPlaneTimeFact.getTag() != null) {
+            boardingStatus = tvPlaneTimeFact.getTag().toString();
+        }
+
+        Intent intent = new Intent(getActivity(), InfoActivity.class);
+        intent.putExtra("planeFlight", planeFlight);
+        intent.putExtra("planeDirection", planeDirection);
+        intent.putExtra("planeRoute", planeRoute);
+        intent.putExtra("planeRouteStatus", planeRouteStatus);
+        intent.putExtra("planeCombination", planeCombination);
+        intent.putExtra("planeType", planeType);
+        intent.putExtra("planeAirline", planeAirline);
+        intent.putExtra("baggageStatus", baggageStatus);
+        intent.putExtra("checkInBegin", checkInBegin);
+        intent.putExtra("checkInEnd", checkInEnd);
+        intent.putExtra("checkIn", checkIn);
+        intent.putExtra("checkInStatus", checkInStatus);
+        intent.putExtra("boardingEnd", boardingEnd);
+        intent.putExtra("boardingGate", boardingGate);
+        intent.putExtra("boardingStatus", boardingStatus);
+        startActivity(intent);
     }
 
-    private void sendQueryToDb(String... params) {
-        String planeDirection = Uri.encode(params[3]);
-        String timePlane = Uri.encode(params[4]);
-        String timeFact = Uri.encode(params[5]);
-        String status = Uri.encode(params[6]);
-        String url = "http://www.avtovokzal.org/php/app_kurumoch/query.php?token="+params[0]+"&direction="+params[1]+"&flight="+params[2]+"&plane_direction="+planeDirection+"&time_plan="+timePlane+"&time_fact="+timeFact+"&status="+status+"&language="+language;
+    private void sendDeleteQueryToDb(String... params) {
+        String token = params[0];
+        String timePlane = Uri.encode(params[3]);
+        String url = "http://www.avtovokzal.org/php/app_kurumoch/deleteQuery.php?token="+token+"&direction="+params[1]+"&flight="+params[2]+"&time_plan="+timePlane;
 
-        StringRequest strReq = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {}
+        if (token.length() > 0) {
+            StringRequest strReq = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                }
             }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {}
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                }
             });
             // Установливаем TimeOut, Retry
             strReq.setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS, 3, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
             // Добавляем запрос в очередь
             AppController.getInstance().addToRequestQueue(strReq);
+        } else {
+            showToast(getString(R.string.toast_token));
+        }
+    }
+
+    private void sendQueryToDb(String... params) {
+        String token = params[0];
+        String planeDirection = Uri.encode(params[3]);
+        String timePlane = Uri.encode(params[4]);
+        String timeFact = Uri.encode(params[5]);
+        String status = Uri.encode(params[6]);
+        if (token.length() > 0) {
+            String url = "http://www.avtovokzal.org/php/app_kurumoch/query.php?token=" + token + "&direction=" + params[1] + "&flight=" + params[2] + "&plane_direction=" + planeDirection + "&time_plan=" + timePlane + "&time_fact=" + timeFact + "&status=" + status + "&language=" + language;
+
+            StringRequest strReq = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                }
+            });
+            // Установливаем TimeOut, Retry
+            strReq.setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS, 3, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+            // Добавляем запрос в очередь
+            AppController.getInstance().addToRequestQueue(strReq);
+        } else {
+            showToast(getString(R.string.toast_token));
+        }
     }
 
     private void hideSoftKeyboard () {
@@ -379,7 +397,7 @@ public class Fragment extends android.support.v4.app.Fragment {
     }
 
     private void refreshListener() {
-        swipeRefreshLayout.setColorSchemeResources(R.color.colorAccent, R.color.colorAccentOrange, R.color.colorAccentBlue);
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimaryLightGreen, R.color.colorPrimaryDeepOrange, R.color.colorPrimaryBlue);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -444,8 +462,7 @@ public class Fragment extends android.support.v4.app.Fragment {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                if(Constants.LOG_ON) {
-                    VolleyLog.d(TAG, "Error: " + error.getMessage());}
+                if(Constants.LOG_ON) {VolleyLog.d(TAG, "Error: " + error.getMessage());}
                 progressDialogDismiss();
                 setErrorTextAndButton();
             }
@@ -737,8 +754,8 @@ public class Fragment extends android.support.v4.app.Fragment {
         Arrays.sort(unique);
         for (final String title : unique) {
             final FloatingActionButton fab = new FloatingActionButton(getActivity().getApplication());
-            fab.setColorNormalResId(R.color.colorPrimary);
-            fab.setColorPressedResId(R.color.colorPrimaryDark);
+            fab.setColorNormalResId(R.color.colorPrimaryGreen);
+            fab.setColorPressedResId(R.color.colorPrimaryDarkGreen);
             fab.setTitle(title);
 
             fab.setIconDrawable(new IconicsDrawable(getActivity().getApplication())

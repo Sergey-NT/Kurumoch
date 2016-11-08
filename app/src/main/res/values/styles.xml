@@ -3,16 +3,161 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar" />
 
     <style name="AppDefault" parent="AppTheme">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="colorControlNormal">@color/colorSecondaryText</item>
+        <item name="colorPrimary">@color/colorPrimaryGreen</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkGreen</item>
+        <item name="colorButtonNormal">@color/colorPrimaryGreen</item>
+        <item name="colorAccent">@color/colorPrimaryGreen</item>
+        <item name="backgroundColor">@color/colorBackgroundGreen</item>
         <item name="android:background">@null</item>
     </style>
 
+    <style name="AppDefaultRed" parent="AppDefault">
+        <item name="colorPrimary">@color/colorPrimaryRed</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkRed</item>
+        <item name="colorButtonNormal">@color/colorPrimaryRed</item>
+        <item name="colorAccent">@color/colorPrimaryRed</item>
+        <item name="backgroundColor">@color/colorBackgroundRed</item>
+    </style>
+
+    <style name="AppDefaultPink" parent="AppDefault">
+        <item name="colorPrimary">@color/colorPrimaryPink</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkPink</item>
+        <item name="colorButtonNormal">@color/colorPrimaryPink</item>
+        <item name="colorAccent">@color/colorPrimaryPink</item>
+        <item name="backgroundColor">@color/colorBackgroundPink</item>
+    </style>
+
+    <style name="AppDefaultPurple" parent="AppDefault">
+        <item name="colorPrimary">@color/colorPrimaryPurple</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkPurple</item>
+        <item name="colorButtonNormal">@color/colorPrimaryPurple</item>
+        <item name="colorAccent">@color/colorPrimaryPurple</item>
+        <item name="backgroundColor">@color/colorBackgroundPurple</item>
+    </style>
+
+    <style name="AppDefaultDeepPurple" parent="AppDefault">
+        <item name="colorPrimary">@color/colorPrimaryDeepPurple</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkDeepPurple</item>
+        <item name="colorButtonNormal">@color/colorPrimaryDeepPurple</item>
+        <item name="colorAccent">@color/colorPrimaryDeepPurple</item>
+        <item name="backgroundColor">@color/colorBackgroundDeepPurple</item>
+    </style>
+
+    <style name="AppDefaultIndigo" parent="AppDefault">
+        <item name="colorPrimary">@color/colorPrimaryIndigo</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkIndigo</item>
+        <item name="colorButtonNormal">@color/colorPrimaryIndigo</item>
+        <item name="colorAccent">@color/colorPrimaryIndigo</item>
+        <item name="backgroundColor">@color/colorBackgroundIndigo</item>
+    </style>
+
+    <style name="AppDefaultBlue" parent="AppDefault">
+        <item name="colorPrimary">@color/colorPrimaryBlue</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkBlue</item>
+        <item name="colorButtonNormal">@color/colorPrimaryBlue</item>
+        <item name="colorAccent">@color/colorPrimaryBlue</item>
+        <item name="backgroundColor">@color/colorBackgroundBlue</item>
+    </style>
+
+    <style name="AppDefaultLightBlue" parent="AppDefault">
+        <item name="colorPrimary">@color/colorPrimaryLightBlue</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkLightBlue</item>
+        <item name="colorButtonNormal">@color/colorPrimaryLightBlue</item>
+        <item name="colorAccent">@color/colorPrimaryLightBlue</item>
+        <item name="backgroundColor">@color/colorBackgroundLightBlue</item>
+    </style>
+
+    <style name="AppDefaultCyan" parent="AppDefault">
+        <item name="colorPrimary">@color/colorPrimaryCyan</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkCyan</item>
+        <item name="colorButtonNormal">@color/colorPrimaryCyan</item>
+        <item name="colorAccent">@color/colorPrimaryCyan</item>
+        <item name="backgroundColor">@color/colorBackgroundCyan</item>
+    </style>
+
+    <style name="AppDefaultTeal" parent="AppDefault">
+        <item name="colorPrimary">@color/colorPrimaryTeal</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkTeal</item>
+        <item name="colorButtonNormal">@color/colorPrimaryTeal</item>
+        <item name="colorAccent">@color/colorPrimaryTeal</item>
+        <item name="backgroundColor">@color/colorBackgroundTeal</item>
+    </style>
+
+    <style name="AppDefaultLightGreen" parent="AppTheme">
+        <item name="colorPrimary">@color/colorPrimaryLightGreen</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkLightGreen</item>
+        <item name="colorButtonNormal">@color/colorPrimaryLightGreen</item>
+        <item name="colorAccent">@color/colorPrimaryLightGreen</item>
+        <item name="backgroundColor">@color/colorBackgroundLightGreen</item>
+    </style>
+
+    <style name="AppDefaultLime" parent="AppDefault">
+        <item name="colorPrimary">@color/colorPrimaryLime</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkLime</item>
+        <item name="colorButtonNormal">@color/colorPrimaryLime</item>
+        <item name="colorAccent">@color/colorPrimaryLime</item>
+        <item name="backgroundColor">@color/colorBackgroundLime</item>
+    </style>
+
+    <style name="AppDefaultYellow" parent="AppDefault">
+        <item name="colorPrimary">@color/colorPrimaryYellow</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkYellow</item>
+        <item name="colorButtonNormal">@color/colorPrimaryYellow</item>
+        <item name="colorAccent">@color/colorPrimaryYellow</item>
+        <item name="backgroundColor">@color/colorBackgroundYellow</item>
+    </style>
+
+    <style name="AppDefaultAmber" parent="AppDefault">
+        <item name="colorPrimary">@color/colorPrimaryAmber</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkAmber</item>
+        <item name="colorButtonNormal">@color/colorPrimaryAmber</item>
+        <item name="colorAccent">@color/colorPrimaryAmber</item>
+        <item name="backgroundColor">@color/colorBackgroundAmber</item>
+    </style>
+
+    <style name="AppDefaultOrange" parent="AppDefault">
+        <item name="colorPrimary">@color/colorPrimaryOrange</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkOrange</item>
+        <item name="colorButtonNormal">@color/colorPrimaryOrange</item>
+        <item name="colorAccent">@color/colorPrimaryOrange</item>
+        <item name="backgroundColor">@color/colorBackgroundOrange</item>
+    </style>
+
+    <style name="AppDefaultDeepOrange" parent="AppDefault">
+        <item name="colorPrimary">@color/colorPrimaryDeepOrange</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkDeepOrange</item>
+        <item name="colorButtonNormal">@color/colorPrimaryDeepOrange</item>
+        <item name="colorAccent">@color/colorPrimaryDeepOrange</item>
+        <item name="backgroundColor">@color/colorBackgroundDeepOrange</item>
+    </style>
+
+    <style name="AppDefaultBrown" parent="AppDefault">
+        <item name="colorPrimary">@color/colorPrimaryBrown</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkBrown</item>
+        <item name="colorButtonNormal">@color/colorPrimaryBrown</item>
+        <item name="colorAccent">@color/colorPrimaryBrown</item>
+        <item name="backgroundColor">@color/colorBackgroundBrown</item>
+    </style>
+
+    <style name="AppDefaultBlueGrey" parent="AppDefault">
+        <item name="colorPrimary">@color/colorPrimaryBlueGrey</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkBlueGrey</item>
+        <item name="colorButtonNormal">@color/colorPrimaryBlueGrey</item>
+        <item name="colorAccent">@color/colorPrimaryBlueGrey</item>
+        <item name="backgroundColor">@color/colorBackgroundBlueGrey</item>
+    </style>
+
+    <style name="AppDefaultGrey" parent="AppDefault">
+        <item name="colorPrimary">@color/colorPrimaryGrey</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkGrey</item>
+        <item name="colorButtonNormal">@color/colorPrimaryGrey</item>
+        <item name="colorAccent">@color/colorPrimaryGrey</item>
+        <item name="backgroundColor">@color/colorBackgroundGrey</item>
+    </style>
+
     <style name="AppLauncherTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/colorPrimaryText</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryText</item>
         <item name="android:background">@drawable/launch_screen</item>
     </style>
 

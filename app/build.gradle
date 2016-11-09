@@ -7,7 +7,7 @@ android {
         applicationId "ru.samara.airport.www.kurumoch"
         minSdkVersion 10
         targetSdkVersion 25
-        versionCode 5
+        versionCode 6
         versionName "1.0.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }

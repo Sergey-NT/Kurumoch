@@ -247,13 +247,10 @@ public class SettingsActivity extends AppCompatActivity implements BillingProces
                 .setCategory(getString(R.string.analytics_category_button))
                 .setAction(getString(R.string.analytics_action_feedback))
                 .build());
-
-        Uri uri = Uri.parse("market://details?id=" + getPackageName());
-        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         try {
-            startActivity(intent);
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getPackageName())));
         } catch (ActivityNotFoundException e) {
-            showToast(getString(R.string.toast_error_google_play));
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + getPackageName())));
         }
     }
 

@@ -67,7 +67,6 @@
     <string name="toast_plane_tracking">Включено отслеживание информации</string>
     <string name="toast_cancel_plane_tracking">Отслеживание информации отключено</string>
     <string name="toast_token">Произошла ошибка при регистрации отслеживания</string>
-    <string name="toast_error_google_play">Приложение Google Play не найдено</string>
     <string name="check_box_update_app">Отменить проверку наличия новой версии при выходе из приложения</string>
     <string name="check_box_language_ru" translatable="false">Русский</string>
     <string name="check_box_language_en" translatable="false">English</string>
@@ -95,4 +94,7 @@
     <string name="main_no_internet">Для работы сервиса нужен доспут к сети Интернет. Проверьте подключение к сети и повторите попытку.</string>
     <string name="main_load_dialog">Пожалуйста, подождите…</string>
     <string name="edit_text_hint">Начните ввод названия города или номера рейса</string>
+    <string name="package_koltsovo" translatable="false">ru.koltsovo.www.koltsovo</string>
+    <string name="package_rostov" translatable="false">ru.rnd_airport.rostov_on_don</string>
+    <string name="package_strigino" translatable="false">ru.airportnn.www.strigino</string>
 </resources>

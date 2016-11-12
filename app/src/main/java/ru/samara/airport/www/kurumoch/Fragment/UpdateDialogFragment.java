@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
-import android.widget.Toast;
 
 import ru.samara.airport.www.kurumoch.Constants;
 import ru.samara.airport.www.kurumoch.R;
@@ -36,22 +35,16 @@ public class UpdateDialogFragment extends DialogFragment {
                 })
                 .setPositiveButton(getString(R.string.dialog_button_positive_update), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        Uri uri = Uri.parse("market://details?id=" + getActivity().getPackageName());
-                        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                         try {
                             dialog.cancel();
-                            startActivity(intent);
+                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getActivity().getPackageName())));
                         } catch (ActivityNotFoundException e) {
                             dialog.cancel();
-                            showToast(getString(R.string.toast_error_google_play));
+                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + getActivity().getPackageName())));
                         }
                     }
                 });
 
         return builder.create();
-    }
-
-    private void showToast(String message) {
-        Toast.makeText(getActivity().getApplication(), message, Toast.LENGTH_LONG).show();
     }
 }

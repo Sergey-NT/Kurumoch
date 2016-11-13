@@ -1,6 +1,7 @@
 package ru.samara.airport.www.kurumoch.Adapter;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
@@ -10,11 +11,13 @@ import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import ru.samara.airport.www.kurumoch.Constants;
 import ru.samara.airport.www.kurumoch.ObjectPlane;
 import ru.samara.airport.www.kurumoch.R;
 
@@ -25,12 +28,14 @@ public class ObjectPlaneAdapter extends BaseAdapter implements Filterable {
     private LayoutInflater layoutInflater;
     private Context context;
     private ItemFilter itemsFilter = new ItemFilter();
+    private SharedPreferences settings;
 
     public ObjectPlaneAdapter(Context context, List<ObjectPlane> list) {
         this.context = context;
         this.originalList = list;
         this.filteredList = list;
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        settings = context.getSharedPreferences(Constants.APP_PREFERENCES, Context.MODE_PRIVATE);
     }
 
     private static class ViewHolder {
@@ -54,6 +59,8 @@ public class ObjectPlaneAdapter extends BaseAdapter implements Filterable {
         private TextView descriptionCheckInEnd;
         private ImageView imageViewTracking;
         private ImageView imageViewLogo;
+        private RelativeLayout relativeLayout;
+        private boolean activateBackground;
     }
 
     @Override
@@ -121,10 +128,13 @@ public class ObjectPlaneAdapter extends BaseAdapter implements Filterable {
             holder.descriptionCheckInEnd = (TextView) view.findViewById(R.id.tvPlaneCheckInEndDesc);
             holder.imageViewTracking = (ImageView) view.findViewById(R.id.imageTracking);
             holder.imageViewLogo = (ImageView) view.findViewById(R.id.imageLogo);
+            holder.relativeLayout = (RelativeLayout) view.findViewById(R.id.listViewItem);
+            holder.activateBackground = settings.getBoolean(Constants.APP_PREFERENCES_ACTIVATE_BACKGROUND, false);
 
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
+            holder.activateBackground = settings.getBoolean(Constants.APP_PREFERENCES_ACTIVATE_BACKGROUND, false);
         }
 
         ObjectPlane objectPlane = getObjectPlane(i);
@@ -203,6 +213,7 @@ public class ObjectPlaneAdapter extends BaseAdapter implements Filterable {
         holder.itemCheckIn.setTextColor(colorGreen);
         holder.itemCheckIn.setText(holder.itemCheckIn.getText().toString().toUpperCase());
         holder.itemCheckIn.setTypeface(null, Typeface.BOLD);
+        holder.relativeLayout.setBackgroundColor(ContextCompat.getColor(context, R.color.colorText));
 
         if (holder.itemBaggageStatus.length() > 1) {
             holder.itemBaggageStatus.setVisibility(View.VISIBLE);
@@ -237,6 +248,18 @@ public class ObjectPlaneAdapter extends BaseAdapter implements Filterable {
         }
 
         setAirlineLogo(holder);
+
+        if (holder.activateBackground) {
+            if (status.contains("Прибыл") || status.contains("Arrived") || status.contains("Вылетел") || status.contains("Departed") || status.contains("Посадка закончена") || status.contains("Gate closed") || status.contains("Идет посадка") || status.contains("Boarding") || status.contains("Регистрация закончена") || status.contains("Check-in-close") || status.contains("Идет регистрация") || status.contains("Check-in-open")) {
+                holder.relativeLayout.setBackgroundColor(ContextCompat.getColor(context, R.color.colorItemBackgroundGreen));
+            } else if (status.contains("Отмена") || status.contains("Cancelled")) {
+                holder.relativeLayout.setBackgroundColor(ContextCompat.getColor(context, R.color.colorItemBackgroundRed));
+            } else if (status.contains("Задержка") || status.contains("Delayed")) {
+                holder.relativeLayout.setBackgroundColor(ContextCompat.getColor(context, R.color.colorItemBackgroundYellow));
+            } else {
+                holder.relativeLayout.setBackgroundColor(ContextCompat.getColor(context, R.color.colorText));
+            }
+        }
         return view;
     }
 

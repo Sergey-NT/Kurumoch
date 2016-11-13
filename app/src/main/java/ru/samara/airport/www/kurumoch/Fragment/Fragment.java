@@ -85,6 +85,7 @@ public class Fragment extends android.support.v4.app.Fragment {
     private SharedPreferences settings;
     private FloatingActionsMenu floatingActionsMenu;
     private List<String> dates;
+    private boolean activateBackground;
 
     public static Fragment getInstance(String direction, String planeNumber) {
         Bundle args = new Bundle();
@@ -118,6 +119,7 @@ public class Fragment extends android.support.v4.app.Fragment {
         planeNumber = getArguments().getString("planeNumber");
         settings = getActivity().getSharedPreferences(Constants.APP_PREFERENCES, Context.MODE_PRIVATE);
         language = settings.getString(Constants.APP_PREFERENCES_LANGUAGE, "ru");
+        activateBackground = settings.getBoolean(Constants.APP_PREFERENCES_ACTIVATE_BACKGROUND, false);
         floatingActionsMenu = (FloatingActionsMenu) view.findViewById(R.id.fam);
 
         clearEditTextListener();
@@ -826,5 +828,14 @@ public class Fragment extends android.support.v4.app.Fragment {
     public void onStop() {
         super.onStop();
         progressDialogDismiss();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (adapter != null & activateBackground != settings.getBoolean(Constants.APP_PREFERENCES_ACTIVATE_BACKGROUND, false)) {
+            activateBackground = settings.getBoolean(Constants.APP_PREFERENCES_ACTIVATE_BACKGROUND, false);
+            adapter.notifyDataSetChanged();
+        }
     }
 }

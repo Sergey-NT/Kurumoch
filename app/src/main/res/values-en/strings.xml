@@ -77,4 +77,5 @@
     <string name="menu_other_airports">Other airports</string>
     <string name="menu_koltsovo_subtitle">Ekaterinburg</string>
     <string name="menu_koltsovo">Koltsovo</string>
+    <string name="check_box_activate_background">Change the background color information about the flight, depending on the status of</string>
 </resources>

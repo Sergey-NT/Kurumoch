@@ -111,4 +111,9 @@
     <color name="colorAsPrimary">#4CAF50</color>
     <color name="colorAsPrimaryDark">#4CAF50</color>
     <color name="colorAviasalesMain">#4CAF50</color>
+
+    <!-- Background цвет элемента списка -->
+    <color name="colorItemBackgroundGreen">#E8F5E9</color>
+    <color name="colorItemBackgroundRed">#FFEBEE</color>
+    <color name="colorItemBackgroundYellow">#FFF8E1</color>
 </resources>

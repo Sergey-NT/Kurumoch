@@ -36,11 +36,27 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15sp"
                 android:layout_marginStart="15sp"
-                android:paddingTop="20sp"
-                android:paddingBottom="20sp"
+                android:layout_marginTop="20sp"
+                android:layout_marginBottom="7sp"
                 android:paddingRight="15sp"
                 android:paddingLeft="15sp"
+                android:layout_gravity="center_vertical"
                 android:text="@string/check_box_update_app"
+                android:textSize="14sp"
+                android:textColor="@color/colorPrimaryText"/>
+
+            <CheckBox
+                android:id="@+id/checkBoxActivateBackground"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15sp"
+                android:layout_marginStart="15sp"
+                android:layout_marginTop="7sp"
+                android:layout_marginBottom="20sp"
+                android:paddingRight="15sp"
+                android:paddingLeft="15sp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/check_box_activate_background"
                 android:textSize="14sp"
                 android:textColor="@color/colorPrimaryText"/>
 

@@ -68,6 +68,7 @@
     <string name="toast_cancel_plane_tracking">Отслеживание информации отключено</string>
     <string name="toast_token">Произошла ошибка при регистрации отслеживания</string>
     <string name="check_box_update_app">Отменить проверку наличия новой версии при выходе из приложения</string>
+    <string name="check_box_activate_background">Изменять цвет фона информации о рейсе в зависимости от статуса</string>
     <string name="check_box_language_ru" translatable="false">Русский</string>
     <string name="check_box_language_en" translatable="false">English</string>
     <string name="button_feedback">Оставить отзыв</string>

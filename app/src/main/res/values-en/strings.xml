@@ -73,9 +73,13 @@
     <string name="menu_strigino">Strigino</string>
     <string name="menu_strigino_subtitle">Nizhny Novgorod</string>
     <string name="menu_title_right">Online flight info</string>
-    <string name="menu_rostov_on_don">Rostov-on-Don</string>
+    <string name="menu_rostov_on_don">Platov</string>
+    <string name="menu_rostov_ob_don_subtitle">Rostov-on-Don</string>
     <string name="menu_other_airports">Other airports</string>
     <string name="menu_koltsovo_subtitle">Ekaterinburg</string>
     <string name="menu_koltsovo">Koltsovo</string>
     <string name="check_box_activate_background">Change the background color information about the flight, depending on the status of</string>
+    <string name="button_privacy_policy">Privacy Policy</string>
+    <string name="channel_name">Push Notification</string>
+    <string name="channel_description">Push Notification Service‎ Channel</string>
 </resources>

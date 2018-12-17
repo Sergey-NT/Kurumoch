@@ -8,7 +8,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.content.IntentCompat;
 import android.support.v7.app.AlertDialog;
 
 import ru.samara.airport.www.kurumoch.Constants;
@@ -206,7 +205,7 @@ public class ThemeDialogFragment extends DialogFragment {
     private void changeActivityAppTheme() {
         getActivity().finish();
         final Intent intent = getActivity().getIntent();
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | IntentCompat.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         getActivity().startActivity(intent);
     }
 }

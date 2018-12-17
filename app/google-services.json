@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "971079463118-5vcn8tuoci4as4bh3dtpf1qar36q8vvm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ru.samara.airport.www.kurumoch",
+            "certificate_hash": "5f51ed71dd404c9fe3f1e2341c1c915ce6f44eca"
+          }
+        },
+        {
           "client_id": "971079463118-66dj0ejsgdah23qpu7slmjtn71pcg2lq.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,13 +37,19 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "971079463118-66dj0ejsgdah23qpu7slmjtn71pcg2lq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
         }
-      }
+      },
+      "admob_app_id": "ca-app-pub-3253485608797245~8822376704"
     }
   ],
   "configuration_version": "1"

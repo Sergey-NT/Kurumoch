@@ -108,27 +108,27 @@ public class ObjectPlaneAdapter extends BaseAdapter implements Filterable {
 
             holder = new ViewHolder();
 
-            holder.itemFlight = (TextView) view.findViewById(R.id.tvPlaneFlight);
-            holder.itemDirection = (TextView) view.findViewById(R.id.tvPlaneDirection);
-            holder.itemType = (TextView) view.findViewById(R.id.tvPlaneType);
-            holder.itemTimePlan = (TextView) view.findViewById(R.id.tvPlaneTimePlan);
-            holder.itemTimeFact = (TextView) view.findViewById(R.id.tvPlaneTimeFact);
-            holder.itemStatus = (TextView) view.findViewById(R.id.tvPlaneStatus);
-            holder.itemBaggageStatus = (TextView) view.findViewById(R.id.tvPlaneBaggage);
-            holder.itemGate = (TextView) view.findViewById(R.id.tvPlaneGate);
-            holder.itemCheckIn = (TextView) view.findViewById(R.id.tvPlaneCheckIn);
-            holder.itemCheckInBegin = (TextView) view.findViewById(R.id.tvPlaneCheckInBegin);
-            holder.itemCheckInEnd = (TextView) view.findViewById(R.id.tvPlaneCheckInEnd);
-            holder.itemCombination = (TextView) view.findViewById(R.id.tvPlaneCombination);
-            holder.descriptionStatus = (TextView) view.findViewById(R.id.tvPlaneStatusDesc);
-            holder.descriptionBaggage = (TextView) view.findViewById(R.id.tvPlaneBaggageDesc);
-            holder.descriptionGate = (TextView) view.findViewById(R.id.tvPlaneGateDesc);
-            holder.descriptionCheckIn = (TextView) view.findViewById(R.id.tvPlaneCheckInDesc);
-            holder.descriptionCheckInBegin = (TextView) view.findViewById(R.id.tvPlaneCheckInBeginDesc);
-            holder.descriptionCheckInEnd = (TextView) view.findViewById(R.id.tvPlaneCheckInEndDesc);
-            holder.imageViewTracking = (ImageView) view.findViewById(R.id.imageTracking);
-            holder.imageViewLogo = (ImageView) view.findViewById(R.id.imageLogo);
-            holder.relativeLayout = (RelativeLayout) view.findViewById(R.id.listViewItem);
+            holder.itemFlight = view.findViewById(R.id.tvPlaneFlight);
+            holder.itemDirection = view.findViewById(R.id.tvPlaneDirection);
+            holder.itemType = view.findViewById(R.id.tvPlaneType);
+            holder.itemTimePlan = view.findViewById(R.id.tvPlaneTimePlan);
+            holder.itemTimeFact = view.findViewById(R.id.tvPlaneTimeFact);
+            holder.itemStatus = view.findViewById(R.id.tvPlaneStatus);
+            holder.itemBaggageStatus = view.findViewById(R.id.tvPlaneBaggage);
+            holder.itemGate = view.findViewById(R.id.tvPlaneGate);
+            holder.itemCheckIn = view.findViewById(R.id.tvPlaneCheckIn);
+            holder.itemCheckInBegin = view.findViewById(R.id.tvPlaneCheckInBegin);
+            holder.itemCheckInEnd = view.findViewById(R.id.tvPlaneCheckInEnd);
+            holder.itemCombination = view.findViewById(R.id.tvPlaneCombination);
+            holder.descriptionStatus = view.findViewById(R.id.tvPlaneStatusDesc);
+            holder.descriptionBaggage = view.findViewById(R.id.tvPlaneBaggageDesc);
+            holder.descriptionGate = view.findViewById(R.id.tvPlaneGateDesc);
+            holder.descriptionCheckIn = view.findViewById(R.id.tvPlaneCheckInDesc);
+            holder.descriptionCheckInBegin = view.findViewById(R.id.tvPlaneCheckInBeginDesc);
+            holder.descriptionCheckInEnd = view.findViewById(R.id.tvPlaneCheckInEndDesc);
+            holder.imageViewTracking = view.findViewById(R.id.imageTracking);
+            holder.imageViewLogo = view.findViewById(R.id.imageLogo);
+            holder.relativeLayout = view.findViewById(R.id.listViewItem);
             holder.activateBackground = settings.getBoolean(Constants.APP_PREFERENCES_ACTIVATE_BACKGROUND, false);
 
             view.setTag(holder);
@@ -456,6 +456,7 @@ public class ObjectPlaneAdapter extends BaseAdapter implements Filterable {
                 holder.imageViewLogo.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.drawable_logo_dexter));
                 break;
             case "UVT":
+            case "RT-":
                 holder.imageViewLogo.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.drawable_logo_uvt_aero));
                 break;
             case "JU-":
@@ -475,6 +476,15 @@ public class ObjectPlaneAdapter extends BaseAdapter implements Filterable {
                 break;
             case "LO-":
                 holder.imageViewLogo.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.drawable_logo_lot_polish_airlines));
+                break;
+            case "IG-":
+                holder.imageViewLogo.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.drawable_logo_airitaly));
+                break;
+            case "SSJ":
+                holder.imageViewLogo.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.drawable_logo_krasavia));
+                break;
+            case "A4-":
+                holder.imageViewLogo.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.drawable_logo_azimut));
                 break;
             default:
                 holder.imageViewLogo.setVisibility(View.GONE);

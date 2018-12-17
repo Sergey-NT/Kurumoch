@@ -12,7 +12,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.content.IntentCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -107,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
             planeNumber = extras.getString("planeNumber");
         }
 
-        initToolbar(R.string.app_name);
+        initToolbar();
         initTabs();
         initNavigationDrawer();
 
@@ -124,21 +123,21 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void initToolbar(int title) {
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+    private void initToolbar() {
+        toolbar = findViewById(R.id.toolbar);
         if (toolbar != null) {
-            toolbar.setTitle(title);
+            toolbar.setTitle(R.string.app_name);
             setSupportActionBar(toolbar);
         }
     }
 
     @SuppressWarnings("ConstantConditions")
     private void initTabs() {
-        viewPager = (ViewPager) findViewById(R.id.viewPager);
+        viewPager = findViewById(R.id.viewPager);
         TabsPagerFragmentAdapter adapter = new TabsPagerFragmentAdapter(getApplicationContext(), planeNumber, direction, getSupportFragmentManager());
         viewPager.setAdapter(adapter);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        TabLayout tabLayout = findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -269,6 +268,7 @@ public class MainActivity extends AppCompatActivity {
                                 .withIcon(GoogleMaterial.Icon.gmd_airplanemode_active),
                         new PrimaryDrawerItem()
                                 .withName(R.string.menu_rostov_on_don)
+                                .withDescription(R.string.menu_rostov_ob_don_subtitle)
                                 .withIcon(GoogleMaterial.Icon.gmd_airplanemode_active),
                         new PrimaryDrawerItem()
                                 .withName(R.string.menu_strigino)
@@ -283,25 +283,25 @@ public class MainActivity extends AppCompatActivity {
                             case 1:
                                 drawerResultRight.closeDrawer();
                                 try {
-                                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getString(R.string.package_koltsovo))));
+                                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getString(R.string.package_koltsovo) + "&" + getString(R.string.utm_campaign_market))));
                                 } catch (ActivityNotFoundException e) {
-                                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + getString(R.string.package_koltsovo))));
+                                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + getString(R.string.package_koltsovo)  + "&" + getString(R.string.utm_campaign_https))));
                                 }
                                 return true;
                             case 2:
                                 drawerResultRight.closeDrawer();
                                 try {
-                                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getString(R.string.package_rostov))));
+                                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getString(R.string.package_rostov) + "&" + getString(R.string.utm_campaign_market))));
                                 } catch (ActivityNotFoundException e) {
-                                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + getString(R.string.package_rostov))));
+                                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + getString(R.string.package_rostov)  + "&" + getString(R.string.utm_campaign_https))));
                                 }
                                 return true;
                             case 3:
                                 drawerResultRight.closeDrawer();
                                 try {
-                                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getString(R.string.package_strigino))));
+                                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getString(R.string.package_strigino) + "&" + getString(R.string.utm_campaign_market))));
                                 } catch (ActivityNotFoundException e) {
-                                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + getString(R.string.package_strigino))));
+                                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + getString(R.string.package_strigino)  + "&" + getString(R.string.utm_campaign_https))));
                                 }
                                 return true;
                         }
@@ -336,29 +336,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        // No call for super(). Bug on API Level > 11.
-    }
-
     @SuppressWarnings("ConstantConditions")
     public void initAd(int layoutId) {
         adView = new AdView(this);
         adView.setAdUnitId(getString(R.string.ad_view_banner));
         adView.setAdSize(AdSize.SMART_BANNER);
 
-        LinearLayout layout = (LinearLayout)findViewById(layoutId);
+        LinearLayout layout = findViewById(layoutId);
         layout.addView(adView);
 
         AdRequest request = new AdRequest.Builder()
                 // Nexus 5
                 .addTestDevice("4B954499F159024FD4EFD592E7A5F658")
-                // Nexus 4 4.4.4
-                .addTestDevice("769FA0ABAACE6F42A12E2AF6BA03F1FC")
-                // Samsung GT-P5200
-                .addTestDevice("36F1281CF85BE19471A7B8BD82141BDF")
-                // Nexus 7
-                .addTestDevice("07B4BB1F6E99054B7ED99CF142644BBD")
                 .build();
 
         adView.loadAd(request);
@@ -414,7 +403,7 @@ public class MainActivity extends AppCompatActivity {
     private void changeActivityAppTheme() {
         finish();
         final Intent intent = getIntent();
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | IntentCompat.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
 
@@ -453,7 +442,7 @@ public class MainActivity extends AppCompatActivity {
         AppController.getInstance().addToRequestQueue(strReq);
     }
 
-    private boolean checkPlayServices() {
+    private void checkPlayServices() {
         GoogleApiAvailability api = GoogleApiAvailability.getInstance();
         int resultCode = api.isGooglePlayServicesAvailable(this);
         if (resultCode != ConnectionResult.SUCCESS) {
@@ -465,8 +454,6 @@ public class MainActivity extends AppCompatActivity {
                 }
                 finish();
             }
-            return false;
         }
-        return true;
     }
 }

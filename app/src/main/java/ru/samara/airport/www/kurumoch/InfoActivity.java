@@ -55,15 +55,15 @@ public class InfoActivity extends AppCompatActivity {
 
         String subtitle = getString(R.string.menu_info_subtitle) + " "  + planeFlight + " " + planeDirection;
 
-        initToolbar(R.string.menu_info_title, subtitle);
+        initToolbar(subtitle);
 
-        LinearLayout linearLayoutRoute = (LinearLayout) findViewById(R.id.linearLayoutRoute);
-        CardView cardViewCombination = (CardView) findViewById(R.id.cardViewCombination);
-        CardView cardViewBaggageStatus = (CardView) findViewById(R.id.cardViewBaggage);
-        CardView cardViewCheckIn = (CardView) findViewById(R.id.cardViewCheckIn);
-        CardView cardViewBoarding = (CardView) findViewById(R.id.cardViewBoarding);
-        CardView cardViewAirline = (CardView) findViewById(R.id.cardViewAirline);
-        CardView cardViewRoute = (CardView) findViewById(R.id.cardViewRoute);
+        LinearLayout linearLayoutRoute = findViewById(R.id.linearLayoutRoute);
+        CardView cardViewCombination = findViewById(R.id.cardViewCombination);
+        CardView cardViewBaggageStatus = findViewById(R.id.cardViewBaggage);
+        CardView cardViewCheckIn = findViewById(R.id.cardViewCheckIn);
+        CardView cardViewBoarding = findViewById(R.id.cardViewBoarding);
+        CardView cardViewAirline = findViewById(R.id.cardViewAirline);
+        CardView cardViewRoute = findViewById(R.id.cardViewRoute);
 
         if (planeRoute == null || planeRouteStatus == null) {
             cardViewRoute.setVisibility(View.GONE);
@@ -73,39 +73,39 @@ public class InfoActivity extends AppCompatActivity {
             addRouteInfoToView(linearLayoutRoute, subStringRoute, subStringRouteStatus);
         }
 
-        TextView tvPlaneType = (TextView) findViewById(R.id.tvType);
+        TextView tvPlaneType = findViewById(R.id.tvType);
         tvPlaneType.setText(planeType);
 
         if (planeAirline == null || planeAirline.length() < 2) {
             cardViewAirline.setVisibility(View.GONE);
         } else {
-            TextView tvPlaneAirline = (TextView) findViewById(R.id.tvPlaneAirline);
+            TextView tvPlaneAirline = findViewById(R.id.tvPlaneAirline);
             tvPlaneAirline.setText(planeAirline);
         }
 
         if (planeCombination == null || planeCombination.length() < 2) {
             cardViewCombination.setVisibility(View.GONE);
         } else {
-            TextView tvCombination = (TextView) findViewById(R.id.tvPlaneCombination);
+            TextView tvCombination = findViewById(R.id.tvPlaneCombination);
             tvCombination.setText(planeCombination);
         }
 
         if (baggageStatus == null || baggageStatus.length() < 2) {
             cardViewBaggageStatus.setVisibility(View.GONE);
         } else {
-            TextView tvBaggageStatus = (TextView) findViewById(R.id.tvBaggage);
+            TextView tvBaggageStatus = findViewById(R.id.tvBaggage);
             tvBaggageStatus.setText(baggageStatus);
         }
 
         if (checkInBegin == null || checkInBegin.length() < 2 || checkInEnd == null || checkIn == null || checkInStatus == null) {
             cardViewCheckIn.setVisibility(View.GONE);
         } else {
-            TextView tvCheckInBegin = (TextView) findViewById(R.id.tvCheckInBegin);
-            TextView tvCheckInEnd = (TextView) findViewById(R.id.tvCheckInEnd);
-            TextView tvCheckIn = (TextView) findViewById(R.id.tvCheckIn);
-            TextView tvCheckInStatus = (TextView) findViewById(R.id.tvCheckInStatus);
-            TextView descCheckIn = (TextView) findViewById(R.id.tvCheckInRegDesc);
-            TextView descCheckInStatus = (TextView) findViewById(R.id.tvCheckInStatusDesc);
+            TextView tvCheckInBegin = findViewById(R.id.tvCheckInBegin);
+            TextView tvCheckInEnd = findViewById(R.id.tvCheckInEnd);
+            TextView tvCheckIn = findViewById(R.id.tvCheckIn);
+            TextView tvCheckInStatus = findViewById(R.id.tvCheckInStatus);
+            TextView descCheckIn = findViewById(R.id.tvCheckInRegDesc);
+            TextView descCheckInStatus = findViewById(R.id.tvCheckInStatusDesc);
             if (checkIn.length() < 2) {
                 descCheckIn.setVisibility(View.GONE);
                 tvCheckIn.setVisibility(View.GONE);
@@ -125,9 +125,9 @@ public class InfoActivity extends AppCompatActivity {
         if (boardingEnd == null || boardingEnd.length() < 2 || boardingGate == null || boardingStatus == null) {
             cardViewBoarding.setVisibility(View.GONE);
         } else {
-            TextView tvBoardingEnd = (TextView) findViewById(R.id.tvBoardingEnd);
-            TextView tvBoardingGate = (TextView) findViewById(R.id.tvBoardingGate);
-            TextView tvBoardingStatus = (TextView) findViewById(R.id.tvBoardingStatus);
+            TextView tvBoardingEnd = findViewById(R.id.tvBoardingEnd);
+            TextView tvBoardingGate = findViewById(R.id.tvBoardingGate);
+            TextView tvBoardingStatus = findViewById(R.id.tvBoardingStatus);
             tvBoardingEnd.setText(boardingEnd);
             tvBoardingGate.setText(boardingGate);
             tvBoardingStatus.setText(boardingStatus);
@@ -179,10 +179,10 @@ public class InfoActivity extends AppCompatActivity {
     }
 
     @SuppressWarnings("ConstantConditions")
-    private void initToolbar(int title, String subTitle) {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+    private void initToolbar(String subTitle) {
+        Toolbar toolbar = findViewById(R.id.toolbar);
         if (toolbar != null) {
-            toolbar.setTitle(title);
+            toolbar.setTitle(R.string.menu_info_title);
             toolbar.setSubtitle(subTitle);
             setSupportActionBar(toolbar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -201,6 +201,16 @@ public class InfoActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         GoogleAnalytics.getInstance(this).reportActivityStart(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        SharedPreferences settings = getSharedPreferences(Constants.APP_PREFERENCES, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putBoolean(Constants.APP_PREFERENCES_UPDATE_LIST_FLAG, false);
+        editor.apply();
     }
 
     @Override

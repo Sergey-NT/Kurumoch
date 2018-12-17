@@ -13,7 +13,7 @@ import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
 
 import ru.aviasales.core.AviasalesSDK;
-import ru.aviasales.core.identification.IdentificationData;
+import ru.aviasales.core.identification.SdkConfig;
 import ru.aviasales.template.ui.fragment.AviasalesFragment;
 
 public class SearchActivity extends AppCompatActivity {
@@ -22,6 +22,7 @@ public class SearchActivity extends AppCompatActivity {
     private static final int APP_THEME = R.style.AppDefault;
     private final static String TRAVEL_PAYOUTS_MARKER = "64818";
     private final static String TRAVEL_PAYOUTS_TOKEN = "56006c981e1ebbcff3430c6ef2519b1f";
+    private final static String SDK_HOST = "www.travel-api.pw";
     private AviasalesFragment aviasalesFragment;
 
     @Override
@@ -32,7 +33,7 @@ public class SearchActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
 
-        AviasalesSDK.getInstance().init(this, new IdentificationData(TRAVEL_PAYOUTS_MARKER, TRAVEL_PAYOUTS_TOKEN));
+        AviasalesSDK.getInstance().init(this, new SdkConfig(TRAVEL_PAYOUTS_MARKER, TRAVEL_PAYOUTS_TOKEN, SDK_HOST));
         setContentView(LAYOUT);
 
         // Google Analytics
@@ -49,7 +50,7 @@ public class SearchActivity extends AppCompatActivity {
 
     @SuppressWarnings("ConstantConditions")
     private void initToolbar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         if (toolbar != null) {
             setSupportActionBar(toolbar);
 
@@ -94,6 +95,16 @@ public class SearchActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         GoogleAnalytics.getInstance(this).reportActivityStart(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        SharedPreferences settings = getSharedPreferences(Constants.APP_PREFERENCES, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putBoolean(Constants.APP_PREFERENCES_UPDATE_LIST_FLAG, false);
+        editor.apply();
     }
 
     @Override

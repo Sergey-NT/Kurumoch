@@ -42,7 +42,7 @@
     <ImageView
         android:id="@+id/imageLogo"
         android:layout_width="80sp"
-        android:layout_height="30sp"
+        android:layout_height="40sp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"

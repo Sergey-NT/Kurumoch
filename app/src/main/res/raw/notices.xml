@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <notices>
     <notice>
-        <name>ACRA Application Crash Reports for Android</name>
-        <url>http://www.acra.ch</url>
-        <copyright/>
-        <license>Apache Software License 2.0</license>
-    </notice>
-    <notice>
         <name>Android Compatibility Library v7</name>
         <url/>
         <copyright>Copyright 2005-2011, The Android Open Source Project</copyright>

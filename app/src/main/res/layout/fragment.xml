@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="5dp"
-        android:background="?attr/backgroundColor"
+        android:background="?android:attr/colorBackground"
         tools:ignore="UnusedAttribute" >
 
         <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -43,7 +43,8 @@
                 android:hint="@string/edit_text_hint"
                 android:textColorHint="@color/colorDivider"
                 android:maxLines="1"
-                android:ellipsize="end" />
+                android:ellipsize="end"
+                android:importantForAutofill="no" />
 
             <ImageButton
                 android:id="@+id/btnClearEditText"

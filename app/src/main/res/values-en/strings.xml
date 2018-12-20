@@ -82,4 +82,5 @@
     <string name="button_privacy_policy">Privacy Policy</string>
     <string name="channel_name">Push Notification</string>
     <string name="channel_description">Push Notification Service‎ Channel</string>
+    <string name="share">Share App</string>
 </resources>

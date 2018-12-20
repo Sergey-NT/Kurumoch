@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Курумоч</string>
     <string name="tabs_item_arrival">Прибытие</string>
@@ -104,4 +105,5 @@
     <string name="utm_campaign_https" translatable="false">referrer=utm_source%3Dkurumoch%26utm_medium%3Dandroid%26utm_campaign%3Dhttps</string>
     <string name="channel_name">Push уведомления</string>
     <string name="channel_description">Канал для получения Push уведомлений об изменениях статусов отслеживаемых рейсов</string>
+    <string name="share">Рассаказать о приложениии</string>
 </resources>

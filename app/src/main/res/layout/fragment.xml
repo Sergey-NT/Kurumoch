@@ -93,7 +93,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
 
-        <android.support.v4.widget.SwipeRefreshLayout
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/fragment_swipe_refresh"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
@@ -105,7 +105,7 @@
                 android:divider="@color/colorDivider"
                 android:dividerHeight="1sp" />
 
-        </android.support.v4.widget.SwipeRefreshLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
         <net.i2p.android.ext.floatingactionbutton.FloatingActionsMenu
             android:layout_width="wrap_content"

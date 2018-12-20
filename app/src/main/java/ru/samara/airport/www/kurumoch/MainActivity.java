@@ -8,16 +8,22 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.content.LocalBroadcastManager;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import com.google.android.material.tabs.TabLayout;
+
+import androidx.appcompat.widget.ShareActionProvider;
+import androidx.core.view.MenuItemCompat;
+import androidx.fragment.app.FragmentManager;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
@@ -35,6 +41,7 @@ import com.google.android.gms.analytics.Tracker;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
+import com.mikepenz.iconics.IconicsDrawable;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
@@ -55,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
     private static final int APP_THEME = R.style.AppDefault;
     private static final String TAG = "MainActivity";
+    private static final String REQUEST_VERSION_APP_URL = "https://www.avtovokzal.org/php/app_kurumoch/requestVersionCode.php";
+    private static final String SHARE_URL = "https://play.google.com/store/apps/details?id=ru.samara.airport.www.kurumoch&referrer=utm_source%3Dkurumoch%26utm_medium%3Dandroid%26utm_campaign%3Dshare";
 
     private Toolbar toolbar;
     private ViewPager viewPager;
@@ -129,6 +138,31 @@ public class MainActivity extends AppCompatActivity {
             toolbar.setTitle(R.string.app_name);
             setSupportActionBar(toolbar);
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.share_menu, menu);
+        MenuItem item = menu.findItem(R.id.menu_item_share);
+
+        ShareActionProvider shareActionProvider = new ShareActionProvider(this) {
+            @Override
+            public View onCreateActionView() {
+                return null;
+            }
+        };
+
+        item.setIcon(new IconicsDrawable(this, "gmd_share").actionBar().color(Color.WHITE));
+
+        MenuItemCompat.setActionProvider(item, shareActionProvider);
+
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(Intent.EXTRA_SUBJECT, R.string.app_name);
+        shareIntent.putExtra(Intent.EXTRA_TEXT, SHARE_URL);
+        shareActionProvider.setShareIntent(shareIntent);
+
+        return true;
     }
 
     @SuppressWarnings("ConstantConditions")
@@ -418,9 +452,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getVersionFromGooglePlay() {
-        String url = "http://www.avtovokzal.org/php/app_kurumoch/requestVersionCode.php";
-
-        StringRequest strReq = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+        StringRequest strReq = new StringRequest(Request.Method.POST, REQUEST_VERSION_APP_URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 if (response != null) {

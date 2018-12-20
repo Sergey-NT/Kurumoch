@@ -8,11 +8,11 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentManager;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -144,7 +144,6 @@ public class SettingsActivity extends AppCompatActivity implements BillingProces
     public void onProductPurchased(@NonNull String productId, TransactionDetails details) {
         showToast(getString(R.string.menu_ads_disable_toast));
 
-        // Сохраняем в настройках
         SharedPreferences.Editor editor = settings.edit();
         editor.putBoolean(Constants.APP_PREFERENCES_ADS_DISABLE, true);
         editor.apply();

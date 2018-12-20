@@ -1,8 +1,8 @@
 package ru.samara.airport.www.kurumoch.Adapter;
 
 import android.content.Context;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 
 import ru.samara.airport.www.kurumoch.Fragment.Fragment;
 import ru.samara.airport.www.kurumoch.R;
@@ -26,7 +26,7 @@ public class TabsPagerFragmentAdapter extends FragmentPagerAdapter {
     }
 
     @Override
-    public android.support.v4.app.Fragment getItem(int position) {
+    public androidx.fragment.app.Fragment getItem(int position) {
         switch (position) {
             case 0:
                 if (direction != null && direction.equals("arrival")) {

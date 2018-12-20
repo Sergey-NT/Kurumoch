@@ -6,9 +6,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.DialogFragment;
-import android.support.v7.app.AlertDialog;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.DialogFragment;
+import androidx.appcompat.app.AlertDialog;
 
 import ru.samara.airport.www.kurumoch.Constants;
 import ru.samara.airport.www.kurumoch.R;
@@ -44,7 +44,7 @@ public class ThemeDialogFragment extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        settings = getActivity().getSharedPreferences(Constants.APP_PREFERENCES, Context.MODE_PRIVATE);
+        settings = requireActivity().getSharedPreferences(Constants.APP_PREFERENCES, Context.MODE_PRIVATE);
         int appTheme = settings.getInt(Constants.APP_PREFERENCES_APP_THEME, APP_THEME);
 
         switch (appTheme) {
@@ -107,7 +107,7 @@ public class ThemeDialogFragment extends DialogFragment {
                 break;
         }
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity());
         builder.setTitle(getString(R.string.dialog_title_theme))
                 .setSingleChoiceItems(items, checkedItem, new DialogInterface.OnClickListener() {
                     @Override
@@ -203,9 +203,9 @@ public class ThemeDialogFragment extends DialogFragment {
     }
 
     private void changeActivityAppTheme() {
-        getActivity().finish();
-        final Intent intent = getActivity().getIntent();
+        requireActivity().finish();
+        final Intent intent = requireActivity().getIntent();
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        getActivity().startActivity(intent);
+        requireActivity().startActivity(intent);
     }
 }

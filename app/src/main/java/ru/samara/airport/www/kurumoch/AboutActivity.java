@@ -7,8 +7,8 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.TextView;
@@ -23,6 +23,7 @@ public class AboutActivity extends AppCompatActivity {
 
     private static final int LAYOUT = R.layout.activity_about;
     private static final int APP_THEME = R.style.AppDefault;
+    private static final String PRIVATE_POLICY_ULR = "https://www.avtovokzal.org/privacy_policy/kurumoch.html";
 
     @Override
     @SuppressWarnings("ConstantConditions")
@@ -117,6 +118,6 @@ public class AboutActivity extends AppCompatActivity {
     }
 
     public void btnPrivacyPolicyOnClick (View view) {
-        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.avtovokzal.org/privacy_policy/kurumoch.html")));
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(PRIVATE_POLICY_ULR)));
     }
 }

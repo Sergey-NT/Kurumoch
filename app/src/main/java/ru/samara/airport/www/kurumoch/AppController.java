@@ -21,6 +21,7 @@ import com.crashlytics.android.core.CrashlyticsCore;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
 
+import androidx.multidex.MultiDex;
 import io.fabric.sdk.android.Fabric;
 
 import java.util.HashMap;
@@ -106,6 +107,12 @@ public class AppController extends Application {
                 }
             }
         }
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
     }
 
     private void configureCrashReporting() {

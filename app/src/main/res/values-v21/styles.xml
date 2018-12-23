@@ -19,6 +19,7 @@
         <item name="colorAccent">@color/colorPrimaryRed</item>
         <item name="android:navigationBarColor">@color/colorPrimaryRed</item>
         <item name="android:colorBackground">@color/colorBackgroundRed</item>
+        <item name="android:background">@null</item>
     </style>
 
     <style name="AppDefaultPink" parent="AppDefault">
@@ -28,6 +29,7 @@
         <item name="colorAccent">@color/colorPrimaryPink</item>
         <item name="android:navigationBarColor">@color/colorPrimaryPink</item>
         <item name="android:colorBackground">@color/colorBackgroundPink</item>
+        <item name="android:background">@null</item>
     </style>
 
     <style name="AppDefaultPurple" parent="AppDefault">
@@ -37,6 +39,7 @@
         <item name="colorAccent">@color/colorPrimaryPurple</item>
         <item name="android:navigationBarColor">@color/colorPrimaryPurple</item>
         <item name="android:colorBackground">@color/colorBackgroundPurple</item>
+        <item name="android:background">@null</item>
     </style>
 
     <style name="AppDefaultDeepPurple" parent="AppDefault">
@@ -46,6 +49,7 @@
         <item name="colorAccent">@color/colorPrimaryDeepPurple</item>
         <item name="android:navigationBarColor">@color/colorPrimaryDeepPurple</item>
         <item name="android:colorBackground">@color/colorBackgroundDeepPurple</item>
+        <item name="android:background">@null</item>
     </style>
 
     <style name="AppDefaultIndigo" parent="AppDefault">
@@ -55,6 +59,7 @@
         <item name="colorAccent">@color/colorPrimaryIndigo</item>
         <item name="android:navigationBarColor">@color/colorPrimaryIndigo</item>
         <item name="android:colorBackground">@color/colorBackgroundIndigo</item>
+        <item name="android:background">@null</item>
     </style>
 
     <style name="AppDefaultBlue" parent="AppDefault">
@@ -64,6 +69,7 @@
         <item name="colorAccent">@color/colorPrimaryBlue</item>
         <item name="android:navigationBarColor">@color/colorPrimaryBlue</item>
         <item name="android:colorBackground">@color/colorBackgroundBlue</item>
+        <item name="android:background">@null</item>
     </style>
 
     <style name="AppDefaultLightBlue" parent="AppDefault">
@@ -73,6 +79,7 @@
         <item name="colorAccent">@color/colorPrimaryLightBlue</item>
         <item name="android:navigationBarColor">@color/colorPrimaryLightBlue</item>
         <item name="android:colorBackground">@color/colorBackgroundLightBlue</item>
+        <item name="android:background">@null</item>
     </style>
 
     <style name="AppDefaultCyan" parent="AppDefault">
@@ -82,6 +89,7 @@
         <item name="colorAccent">@color/colorPrimaryCyan</item>
         <item name="android:navigationBarColor">@color/colorPrimaryCyan</item>
         <item name="android:colorBackground">@color/colorBackgroundCyan</item>
+        <item name="android:background">@null</item>
     </style>
 
     <style name="AppDefaultTeal" parent="AppDefault">
@@ -91,6 +99,7 @@
         <item name="colorAccent">@color/colorPrimaryTeal</item>
         <item name="android:navigationBarColor">@color/colorPrimaryTeal</item>
         <item name="android:colorBackground">@color/colorBackgroundTeal</item>
+        <item name="android:background">@null</item>
     </style>
 
     <style name="AppDefaultLightGreen" parent="AppTheme">
@@ -100,6 +109,7 @@
         <item name="colorAccent">@color/colorPrimaryLightGreen</item>
         <item name="android:navigationBarColor">@color/colorPrimaryLightGreen</item>
         <item name="android:colorBackground">@color/colorBackgroundLightGreen</item>
+        <item name="android:background">@null</item>
     </style>
 
     <style name="AppDefaultLime" parent="AppDefault">
@@ -109,6 +119,7 @@
         <item name="colorAccent">@color/colorPrimaryLime</item>
         <item name="android:navigationBarColor">@color/colorPrimaryLime</item>
         <item name="android:colorBackground">@color/colorBackgroundLime</item>
+        <item name="android:background">@null</item>
     </style>
 
     <style name="AppDefaultYellow" parent="AppDefault">
@@ -118,6 +129,7 @@
         <item name="colorAccent">@color/colorPrimaryYellow</item>
         <item name="android:navigationBarColor">@color/colorPrimaryYellow</item>
         <item name="android:colorBackground">@color/colorBackgroundYellow</item>
+        <item name="android:background">@null</item>
     </style>
 
     <style name="AppDefaultAmber" parent="AppDefault">
@@ -127,6 +139,7 @@
         <item name="colorAccent">@color/colorPrimaryAmber</item>
         <item name="android:navigationBarColor">@color/colorPrimaryAmber</item>
         <item name="android:colorBackground">@color/colorBackgroundAmber</item>
+        <item name="android:background">@null</item>
     </style>
 
     <style name="AppDefaultOrange" parent="AppDefault">
@@ -136,6 +149,7 @@
         <item name="colorAccent">@color/colorPrimaryOrange</item>
         <item name="android:navigationBarColor">@color/colorPrimaryOrange</item>
         <item name="android:colorBackground">@color/colorBackgroundOrange</item>
+        <item name="android:background">@null</item>
     </style>
 
     <style name="AppDefaultDeepOrange" parent="AppDefault">
@@ -145,6 +159,7 @@
         <item name="colorAccent">@color/colorPrimaryDeepOrange</item>
         <item name="android:navigationBarColor">@color/colorPrimaryDeepOrange</item>
         <item name="android:colorBackground">@color/colorBackgroundDeepOrange</item>
+        <item name="android:background">@null</item>
     </style>
 
     <style name="AppDefaultBrown" parent="AppDefault">
@@ -154,6 +169,7 @@
         <item name="colorAccent">@color/colorPrimaryBrown</item>
         <item name="android:navigationBarColor">@color/colorPrimaryBrown</item>
         <item name="android:colorBackground">@color/colorBackgroundBrown</item>
+        <item name="android:background">@null</item>
     </style>
 
     <style name="AppDefaultBlueGrey" parent="AppDefault">
@@ -163,6 +179,7 @@
         <item name="colorAccent">@color/colorPrimaryBlueGrey</item>
         <item name="android:navigationBarColor">@color/colorPrimaryBlueGrey</item>
         <item name="android:colorBackground">@color/colorBackgroundBlueGrey</item>
+        <item name="android:background">@null</item>
     </style>
 
     <style name="AppDefaultGrey" parent="AppDefault">
@@ -172,6 +189,7 @@
         <item name="colorAccent">@color/colorPrimaryGrey</item>
         <item name="android:navigationBarColor">@color/colorPrimaryGrey</item>
         <item name="android:colorBackground">@color/colorBackgroundGrey</item>
+        <item name="android:background">@null</item>
     </style>
 
     <style name="AppLauncherTheme" parent="Theme.AppCompat.Light.NoActionBar">

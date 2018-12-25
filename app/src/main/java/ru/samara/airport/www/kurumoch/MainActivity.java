@@ -84,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
         setTheme(appTheme);
 
         super.onCreate(savedInstanceState);
+
+        setTheme(appTheme);
         setContentView(LAYOUT);
 
         // Google Analytics

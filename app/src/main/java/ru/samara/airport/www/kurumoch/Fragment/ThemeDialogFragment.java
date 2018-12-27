@@ -17,25 +17,25 @@ public class ThemeDialogFragment extends DialogFragment {
 
     private static final CharSequence[] items = {"Green", "Blue Grey", "Grey", "Brown", "Red", "Pink", "Purple", "Deep Purple", "Indigo", "Blue", "Light Blue", "Cyan", "Teal", "Light Green", "Lime", "Yellow", "Amber", "Orange", "Deep Orange"};
 
-    private static final int APP_THEME = R.style.AppDefault;
-    private static final int APP_THEME_BLUE_GREY = R.style.AppDefaultBlueGrey;
-    private static final int APP_THEME_GREY = R.style.AppDefaultGrey;
-    private static final int APP_THEME_BROWN = R.style.AppDefaultBrown;
-    private static final int APP_THEME_RED = R.style.AppDefaultRed;
-    private static final int APP_THEME_PINK = R.style.AppDefaultPink;
-    private static final int APP_THEME_PURPLE = R.style.AppDefaultPurple;
-    private static final int APP_THEME_DEEP_PURPLE = R.style.AppDefaultDeepPurple;
-    private static final int APP_THEME_INDIGO = R.style.AppDefaultIndigo;
-    private static final int APP_THEME_BLUE = R.style.AppDefaultBlue;
-    private static final int APP_THEME_LIGHT_BLUE = R.style.AppDefaultLightBlue;
-    private static final int APP_THEME_CYAN = R.style.AppDefaultCyan;
-    private static final int APP_THEME_TEAL = R.style.AppDefaultTeal;
-    private static final int APP_THEME_LIGHT_GREEN = R.style.AppDefaultLightGreen;
-    private static final int APP_THEME_LIME = R.style.AppDefaultLime;
-    private static final int APP_THEME_YELLOW = R.style.AppDefaultYellow;
-    private static final int APP_THEME_AMBER = R.style.AppDefaultAmber;
-    private static final int APP_THEME_ORANGE = R.style.AppDefaultOrange;
-    private static final int APP_THEME_DEEP_ORANGE = R.style.AppDefaultDeepOrange;
+    private static final int APP_THEME = R.style.AppTheme;
+    private static final int APP_THEME_BLUE_GREY = R.style.AppTheme_AppDefaultBlueGrey;
+    private static final int APP_THEME_GREY = R.style.AppTheme_AppDefaultGrey;
+    private static final int APP_THEME_BROWN = R.style.AppTheme_AppDefaultBrown;
+    private static final int APP_THEME_RED = R.style.AppTheme_AppDefaultRed;
+    private static final int APP_THEME_PINK = R.style.AppTheme_AppDefaultPink;
+    private static final int APP_THEME_PURPLE = R.style.AppTheme_AppDefaultPurple;
+    private static final int APP_THEME_DEEP_PURPLE = R.style.AppTheme_AppDefaultDeepPurple;
+    private static final int APP_THEME_INDIGO = R.style.AppTheme_AppDefaultIndigo;
+    private static final int APP_THEME_BLUE = R.style.AppTheme_AppDefaultBlue;
+    private static final int APP_THEME_LIGHT_BLUE = R.style.AppTheme_AppDefaultLightBlue;
+    private static final int APP_THEME_CYAN = R.style.AppTheme_AppDefaultCyan;
+    private static final int APP_THEME_TEAL = R.style.AppTheme_AppDefaultTeal;
+    private static final int APP_THEME_LIGHT_GREEN = R.style.AppTheme_AppDefaultLightGreen;
+    private static final int APP_THEME_LIME = R.style.AppTheme_AppDefaultLime;
+    private static final int APP_THEME_YELLOW = R.style.AppTheme_AppDefaultYellow;
+    private static final int APP_THEME_AMBER = R.style.AppTheme_AppDefaultAmber;
+    private static final int APP_THEME_ORANGE = R.style.AppTheme_AppDefaultOrange;
+    private static final int APP_THEME_DEEP_ORANGE = R.style.AppTheme_AppDefaultDeepOrange;
 
     private SharedPreferences settings;
 
@@ -205,7 +205,7 @@ public class ThemeDialogFragment extends DialogFragment {
     private void changeActivityAppTheme() {
         requireActivity().finish();
         final Intent intent = requireActivity().getIntent();
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         requireActivity().startActivity(intent);
     }
 }

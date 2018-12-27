@@ -10,7 +10,10 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+
+import com.crashlytics.android.Crashlytics;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.appcompat.widget.ShareActionProvider;
@@ -60,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int LAYOUT = R.layout.activity_main;
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
-    private static final int APP_THEME = R.style.AppDefault;
     private static final String TAG = "MainActivity";
     private static final String REQUEST_VERSION_APP_URL = "https://www.avtovokzal.org/php/app_kurumoch/requestVersionCode.php";
     private static final String SHARE_URL = "https://play.google.com/store/apps/details?id=ru.samara.airport.www.kurumoch&referrer=utm_source%3Dkurumoch%26utm_medium%3Dandroid%26utm_campaign%3Dshare";
@@ -79,13 +81,17 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        settings = getSharedPreferences(Constants.APP_PREFERENCES, Context.MODE_PRIVATE);
-        appTheme = settings.getInt(Constants.APP_PREFERENCES_APP_THEME, APP_THEME);
-        setTheme(appTheme);
+        settings = getSharedPreferences(Constants.APP_PREFERENCES, MODE_PRIVATE);
+        appTheme = settings.getInt(Constants.APP_PREFERENCES_APP_THEME, Constants.APP_THEME);
+
+        if (Build.VERSION.SDK_INT >= 23) {
+            onApplyThemeResource(getTheme(), appTheme, false);
+        } else {
+            setTheme(appTheme);
+        }
 
         super.onCreate(savedInstanceState);
 
-        setTheme(appTheme);
         setContentView(LAYOUT);
 
         // Google Analytics
@@ -321,6 +327,7 @@ public class MainActivity extends AppCompatActivity {
                                 try {
                                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getString(R.string.package_koltsovo) + "&" + getString(R.string.utm_campaign_market))));
                                 } catch (ActivityNotFoundException e) {
+                                    Crashlytics.logException(e);
                                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + getString(R.string.package_koltsovo)  + "&" + getString(R.string.utm_campaign_https))));
                                 }
                                 return true;
@@ -329,6 +336,7 @@ public class MainActivity extends AppCompatActivity {
                                 try {
                                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getString(R.string.package_rostov) + "&" + getString(R.string.utm_campaign_market))));
                                 } catch (ActivityNotFoundException e) {
+                                    Crashlytics.logException(e);
                                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + getString(R.string.package_rostov)  + "&" + getString(R.string.utm_campaign_https))));
                                 }
                                 return true;
@@ -337,6 +345,7 @@ public class MainActivity extends AppCompatActivity {
                                 try {
                                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getString(R.string.package_strigino) + "&" + getString(R.string.utm_campaign_market))));
                                 } catch (ActivityNotFoundException e) {
+                                    Crashlytics.logException(e);
                                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + getString(R.string.package_strigino)  + "&" + getString(R.string.utm_campaign_https))));
                                 }
                                 return true;
@@ -412,7 +421,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        if (appTheme != settings.getInt(Constants.APP_PREFERENCES_APP_THEME, APP_THEME)) {
+        if (appTheme != settings.getInt(Constants.APP_PREFERENCES_APP_THEME, Constants.APP_THEME)) {
             changeActivityAppTheme();
         }
         super.onResume();
@@ -439,7 +448,7 @@ public class MainActivity extends AppCompatActivity {
     private void changeActivityAppTheme() {
         finish();
         final Intent intent = getIntent();
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(intent);
     }
 
@@ -462,13 +471,15 @@ public class MainActivity extends AppCompatActivity {
                         JSONObject dataJsonObject = new JSONObject(response);
                         versionGooglePlay = dataJsonObject.getInt("version_app");
                     } catch (JSONException e) {
-                        e.printStackTrace();
+                        Crashlytics.logException(e);
                     }
                 }
             }
         }, new Response.ErrorListener() {
             @Override
-            public void onErrorResponse(VolleyError error) {}
+            public void onErrorResponse(VolleyError error) {
+                Crashlytics.log(1, "GET_VERSION_FROM_GOOGLE_PLAY", error.getMessage());
+            }
         });
         // Установливаем TimeOut, Retry
         strReq.setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS, 3, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));

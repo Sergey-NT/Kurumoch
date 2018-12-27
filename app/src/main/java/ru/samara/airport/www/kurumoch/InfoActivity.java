@@ -1,7 +1,7 @@
 package ru.samara.airport.www.kurumoch;
 
-import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import androidx.core.content.ContextCompat;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,16 +21,23 @@ import com.google.android.gms.analytics.Tracker;
 public class InfoActivity extends AppCompatActivity {
 
     private static final int LAYOUT = R.layout.activity_info;
-    private static final int APP_THEME = R.style.AppDefault;
+
+    private SharedPreferences settings;
 
     @Override
     @SuppressWarnings("ConstantConditions")
     protected void onCreate(Bundle savedInstanceState) {
-        SharedPreferences settings = getSharedPreferences(Constants.APP_PREFERENCES, Context.MODE_PRIVATE);
-        int appTheme = settings.getInt(Constants.APP_PREFERENCES_APP_THEME, APP_THEME);
-        setTheme(appTheme);
+        settings = getSharedPreferences(Constants.APP_PREFERENCES, MODE_PRIVATE);
+        int appTheme = settings.getInt(Constants.APP_PREFERENCES_APP_THEME, Constants.APP_THEME);
+
+        if (Build.VERSION.SDK_INT >= 23) {
+            onApplyThemeResource(getTheme(), appTheme, false);
+        } else {
+            setTheme(appTheme);
+        }
 
         super.onCreate(savedInstanceState);
+
         setContentView(LAYOUT);
 
         // Google Analytics
@@ -207,7 +214,6 @@ public class InfoActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
 
-        SharedPreferences settings = getSharedPreferences(Constants.APP_PREFERENCES, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = settings.edit();
         editor.putBoolean(Constants.APP_PREFERENCES_UPDATE_LIST_FLAG, false);
         editor.apply();

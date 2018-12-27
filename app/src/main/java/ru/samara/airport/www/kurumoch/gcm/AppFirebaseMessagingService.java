@@ -32,7 +32,7 @@ public class AppFirebaseMessagingService extends FirebaseMessagingService {
 
     private void sendRegistrationToSettings(String token) {
         SharedPreferences settings;
-        settings = getSharedPreferences(Constants.APP_PREFERENCES, Context.MODE_PRIVATE);
+        settings = getSharedPreferences(Constants.APP_PREFERENCES, MODE_PRIVATE);
         settings.edit().putString(Constants.APP_TOKEN, token).apply();
     }
 

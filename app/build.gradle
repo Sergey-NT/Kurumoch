@@ -16,8 +16,8 @@ android {
         applicationId "ru.samara.airport.www.kurumoch"
         minSdkVersion 15
         targetSdkVersion 28
-        versionCode 17
-        versionName "1.0.11"
+        versionCode 18
+        versionName "1.0.12"
         multiDexEnabled true
     }
     buildTypes {
@@ -38,7 +38,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0-alpha01'
     implementation "androidx.recyclerview:recyclerview:1.1.0-alpha01"
     implementation "androidx.annotation:annotation:1.0.1"
-    implementation "androidx.constraintlayout:constraintlayout:2.0.0-alpha2"
+    implementation "androidx.constraintlayout:constraintlayout:2.0.0-alpha3"
     implementation 'androidx.browser:browser:1.0.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.multidex:multidex:2.0.1'

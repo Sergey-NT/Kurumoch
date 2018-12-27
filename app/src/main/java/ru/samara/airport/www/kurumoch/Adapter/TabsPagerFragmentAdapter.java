@@ -1,6 +1,8 @@
 package ru.samara.airport.www.kurumoch.Adapter;
 
 import android.content.Context;
+
+import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
@@ -25,6 +27,8 @@ public class TabsPagerFragmentAdapter extends FragmentPagerAdapter {
         };
     }
 
+    @SuppressWarnings("ConstantConditions")
+    @NonNull
     @Override
     public androidx.fragment.app.Fragment getItem(int position) {
         switch (position) {
@@ -40,8 +44,9 @@ public class TabsPagerFragmentAdapter extends FragmentPagerAdapter {
                 } else {
                     return Fragment.getInstance("departure", null);
                 }
+            default:
+                return null;
         }
-        return null;
     }
 
     @Override

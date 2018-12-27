@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar" />
-
-    <style name="AppDefault" parent="AppTheme">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimaryGreen</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkGreen</item>
         <item name="colorButtonNormal">@color/colorPrimaryGreen</item>
@@ -12,169 +10,187 @@
         <item name="android:background">@null</item>
     </style>
 
-    <style name="AppDefaultRed" parent="AppDefault">
+    <style name="AppTheme.AppDefaultRed">
         <item name="colorPrimary">@color/colorPrimaryRed</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkRed</item>
         <item name="colorButtonNormal">@color/colorPrimaryRed</item>
         <item name="colorAccent">@color/colorPrimaryRed</item>
         <item name="android:navigationBarColor">@color/colorPrimaryRed</item>
         <item name="android:colorBackground">@color/colorBackgroundRed</item>
+        <item name="android:background">@null</item>
     </style>
 
-    <style name="AppDefaultPink" parent="AppDefault">
+    <style name="AppTheme.AppDefaultPink">
         <item name="colorPrimary">@color/colorPrimaryPink</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkPink</item>
         <item name="colorButtonNormal">@color/colorPrimaryPink</item>
         <item name="colorAccent">@color/colorPrimaryPink</item>
         <item name="android:navigationBarColor">@color/colorPrimaryPink</item>
         <item name="android:colorBackground">@color/colorBackgroundPink</item>
+        <item name="android:background">@null</item>
     </style>
 
-    <style name="AppDefaultPurple" parent="AppDefault">
+    <style name="AppTheme.AppDefaultPurple">
         <item name="colorPrimary">@color/colorPrimaryPurple</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkPurple</item>
         <item name="colorButtonNormal">@color/colorPrimaryPurple</item>
         <item name="colorAccent">@color/colorPrimaryPurple</item>
         <item name="android:navigationBarColor">@color/colorPrimaryPurple</item>
         <item name="android:colorBackground">@color/colorBackgroundPurple</item>
+        <item name="android:background">@null</item>
     </style>
 
-    <style name="AppDefaultDeepPurple" parent="AppDefault">
+    <style name="AppTheme.AppDefaultDeepPurple">
         <item name="colorPrimary">@color/colorPrimaryDeepPurple</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkDeepPurple</item>
         <item name="colorButtonNormal">@color/colorPrimaryDeepPurple</item>
         <item name="colorAccent">@color/colorPrimaryDeepPurple</item>
         <item name="android:navigationBarColor">@color/colorPrimaryDeepPurple</item>
         <item name="android:colorBackground">@color/colorBackgroundDeepPurple</item>
+        <item name="android:background">@null</item>
     </style>
 
-    <style name="AppDefaultIndigo" parent="AppDefault">
+    <style name="AppTheme.AppDefaultIndigo">
         <item name="colorPrimary">@color/colorPrimaryIndigo</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkIndigo</item>
         <item name="colorButtonNormal">@color/colorPrimaryIndigo</item>
         <item name="colorAccent">@color/colorPrimaryIndigo</item>
         <item name="android:navigationBarColor">@color/colorPrimaryIndigo</item>
         <item name="android:colorBackground">@color/colorBackgroundIndigo</item>
+        <item name="android:background">@null</item>
     </style>
 
-    <style name="AppDefaultBlue" parent="AppDefault">
+    <style name="AppTheme.AppDefaultBlue">
         <item name="colorPrimary">@color/colorPrimaryBlue</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkBlue</item>
         <item name="colorButtonNormal">@color/colorPrimaryBlue</item>
         <item name="colorAccent">@color/colorPrimaryBlue</item>
         <item name="android:navigationBarColor">@color/colorPrimaryBlue</item>
         <item name="android:colorBackground">@color/colorBackgroundBlue</item>
+        <item name="android:background">@null</item>
     </style>
 
-    <style name="AppDefaultLightBlue" parent="AppDefault">
+    <style name="AppTheme.AppDefaultLightBlue">
         <item name="colorPrimary">@color/colorPrimaryLightBlue</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkLightBlue</item>
         <item name="colorButtonNormal">@color/colorPrimaryLightBlue</item>
         <item name="colorAccent">@color/colorPrimaryLightBlue</item>
         <item name="android:navigationBarColor">@color/colorPrimaryLightBlue</item>
         <item name="android:colorBackground">@color/colorBackgroundLightBlue</item>
+        <item name="android:background">@null</item>
     </style>
 
-    <style name="AppDefaultCyan" parent="AppDefault">
+    <style name="AppTheme.AppDefaultCyan">
         <item name="colorPrimary">@color/colorPrimaryCyan</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkCyan</item>
         <item name="colorButtonNormal">@color/colorPrimaryCyan</item>
         <item name="colorAccent">@color/colorPrimaryCyan</item>
         <item name="android:navigationBarColor">@color/colorPrimaryCyan</item>
         <item name="android:colorBackground">@color/colorBackgroundCyan</item>
+        <item name="android:background">@null</item>
     </style>
 
-    <style name="AppDefaultTeal" parent="AppDefault">
+    <style name="AppTheme.AppDefaultTeal">
         <item name="colorPrimary">@color/colorPrimaryTeal</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkTeal</item>
         <item name="colorButtonNormal">@color/colorPrimaryTeal</item>
         <item name="colorAccent">@color/colorPrimaryTeal</item>
         <item name="android:navigationBarColor">@color/colorPrimaryTeal</item>
         <item name="android:colorBackground">@color/colorBackgroundTeal</item>
+        <item name="android:background">@null</item>
     </style>
 
-    <style name="AppDefaultLightGreen" parent="AppTheme">
+    <style name="AppTheme.AppDefaultLightGreen">
         <item name="colorPrimary">@color/colorPrimaryLightGreen</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkLightGreen</item>
         <item name="colorButtonNormal">@color/colorPrimaryLightGreen</item>
         <item name="colorAccent">@color/colorPrimaryLightGreen</item>
         <item name="android:navigationBarColor">@color/colorPrimaryLightGreen</item>
         <item name="android:colorBackground">@color/colorBackgroundLightGreen</item>
+        <item name="android:background">@null</item>
     </style>
 
-    <style name="AppDefaultLime" parent="AppDefault">
+    <style name="AppTheme.AppDefaultLime">
         <item name="colorPrimary">@color/colorPrimaryLime</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkLime</item>
         <item name="colorButtonNormal">@color/colorPrimaryLime</item>
         <item name="colorAccent">@color/colorPrimaryLime</item>
         <item name="android:navigationBarColor">@color/colorPrimaryLime</item>
         <item name="android:colorBackground">@color/colorBackgroundLime</item>
+        <item name="android:background">@null</item>
     </style>
 
-    <style name="AppDefaultYellow" parent="AppDefault">
+    <style name="AppTheme.AppDefaultYellow">
         <item name="colorPrimary">@color/colorPrimaryYellow</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkYellow</item>
         <item name="colorButtonNormal">@color/colorPrimaryYellow</item>
         <item name="colorAccent">@color/colorPrimaryYellow</item>
         <item name="android:navigationBarColor">@color/colorPrimaryYellow</item>
         <item name="android:colorBackground">@color/colorBackgroundYellow</item>
+        <item name="android:background">@null</item>
     </style>
 
-    <style name="AppDefaultAmber" parent="AppDefault">
+    <style name="AppTheme.AppDefaultAmber">
         <item name="colorPrimary">@color/colorPrimaryAmber</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkAmber</item>
         <item name="colorButtonNormal">@color/colorPrimaryAmber</item>
         <item name="colorAccent">@color/colorPrimaryAmber</item>
         <item name="android:navigationBarColor">@color/colorPrimaryAmber</item>
         <item name="android:colorBackground">@color/colorBackgroundAmber</item>
+        <item name="android:background">@null</item>
     </style>
 
-    <style name="AppDefaultOrange" parent="AppDefault">
+    <style name="AppTheme.AppDefaultOrange">
         <item name="colorPrimary">@color/colorPrimaryOrange</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkOrange</item>
         <item name="colorButtonNormal">@color/colorPrimaryOrange</item>
         <item name="colorAccent">@color/colorPrimaryOrange</item>
         <item name="android:navigationBarColor">@color/colorPrimaryOrange</item>
         <item name="android:colorBackground">@color/colorBackgroundOrange</item>
+        <item name="android:background">@null</item>
     </style>
 
-    <style name="AppDefaultDeepOrange" parent="AppDefault">
+    <style name="AppTheme.AppDefaultDeepOrange">
         <item name="colorPrimary">@color/colorPrimaryDeepOrange</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkDeepOrange</item>
         <item name="colorButtonNormal">@color/colorPrimaryDeepOrange</item>
         <item name="colorAccent">@color/colorPrimaryDeepOrange</item>
         <item name="android:navigationBarColor">@color/colorPrimaryDeepOrange</item>
         <item name="android:colorBackground">@color/colorBackgroundDeepOrange</item>
+        <item name="android:background">@null</item>
     </style>
 
-    <style name="AppDefaultBrown" parent="AppDefault">
+    <style name="AppTheme.AppDefaultBrown">
         <item name="colorPrimary">@color/colorPrimaryBrown</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkBrown</item>
         <item name="colorButtonNormal">@color/colorPrimaryBrown</item>
         <item name="colorAccent">@color/colorPrimaryBrown</item>
         <item name="android:navigationBarColor">@color/colorPrimaryBrown</item>
         <item name="android:colorBackground">@color/colorBackgroundBrown</item>
+        <item name="android:background">@null</item>
     </style>
 
-    <style name="AppDefaultBlueGrey" parent="AppDefault">
+    <style name="AppTheme.AppDefaultBlueGrey">
         <item name="colorPrimary">@color/colorPrimaryBlueGrey</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkBlueGrey</item>
         <item name="colorButtonNormal">@color/colorPrimaryBlueGrey</item>
         <item name="colorAccent">@color/colorPrimaryBlueGrey</item>
         <item name="android:navigationBarColor">@color/colorPrimaryBlueGrey</item>
         <item name="android:colorBackground">@color/colorBackgroundBlueGrey</item>
+        <item name="android:background">@null</item>
     </style>
 
-    <style name="AppDefaultGrey" parent="AppDefault">
+    <style name="AppTheme.AppDefaultGrey">
         <item name="colorPrimary">@color/colorPrimaryGrey</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkGrey</item>
         <item name="colorButtonNormal">@color/colorPrimaryGrey</item>
         <item name="colorAccent">@color/colorPrimaryGrey</item>
         <item name="android:navigationBarColor">@color/colorPrimaryGrey</item>
         <item name="android:colorBackground">@color/colorBackgroundGrey</item>
+        <item name="android:background">@null</item>
     </style>
 
-    <style name="AppLauncherTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme.AppLauncherTheme">
         <item name="colorPrimary">@color/colorPrimaryText</item>
         <item name="colorPrimaryDark">@color/colorPrimaryText</item>
         <item name="android:navigationBarColor">@color/colorPrimaryText</item>

@@ -10,6 +10,7 @@ public class Constants {
     public static final String APP_PREFERENCES_APP_THEME = "app_theme";
     public static final String APP_PREFERENCES_ACTIVATE_BACKGROUND = "activate_background";
     public static final String APP_PREFERENCES_UPDATE_LIST_FLAG = "update_list_flag";
+    static final int APP_THEME = R.style.AppTheme;
     static final int TAB_ONE = 0;
     static final int TAB_TWO = 1;
     static final String APP_PREFERENCES_CHANNEL_CREATE_FLAG = "channel_create";

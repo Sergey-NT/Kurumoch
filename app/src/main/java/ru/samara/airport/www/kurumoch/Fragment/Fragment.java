@@ -39,6 +39,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
+import com.crashlytics.android.Crashlytics;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
@@ -365,6 +366,7 @@ public class Fragment extends androidx.fragment.app.Fragment {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
+                    Crashlytics.log(1, "SEND_DELETE_QUERY_TO_DB", error.getMessage());
                 }
             });
             // Установливаем TimeOut, Retry
@@ -392,6 +394,7 @@ public class Fragment extends androidx.fragment.app.Fragment {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
+                    Crashlytics.log(1, "SEND_QUERY_TO_DB", error.getMessage());
                 }
             });
             // Установливаем TimeOut, Retry
@@ -446,7 +449,7 @@ public class Fragment extends androidx.fragment.app.Fragment {
                 progressDialog.dismiss();
             }
         } catch (IllegalArgumentException e) {
-            e.printStackTrace();
+            Crashlytics.logException(e);
         } finally {
             progressDialog = null;
         }
@@ -477,7 +480,7 @@ public class Fragment extends androidx.fragment.app.Fragment {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                if(Constants.LOG_ON) {VolleyLog.d(TAG, "Error: " + error.getMessage());}
+                Crashlytics.log(1, "GET_XML", error.getMessage());
                 progressDialogDismiss();
                 setErrorTextAndButton();
             }
@@ -491,7 +494,7 @@ public class Fragment extends androidx.fragment.app.Fragment {
     private void getQueryFromServer() {
         String token = settings.getString(Constants.APP_TOKEN, "");
 
-        if (token.length() > 0) {
+        if (token != null && token.length() > 0) {
             String url = GET_QUERY_URL + token;
 
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
@@ -517,13 +520,15 @@ public class Fragment extends androidx.fragment.app.Fragment {
                                 }
                             }
                         } catch (JSONException e) {
-                            e.printStackTrace();
+                            Crashlytics.logException(e);
                         }
                     }
                 }
             }, new Response.ErrorListener() {
                 @Override
-                public void onErrorResponse(VolleyError error) {}
+                public void onErrorResponse(VolleyError error) {
+                    Crashlytics.log(1, "GET_QUERY_FROM_SERVER", error.getMessage());
+                }
             });
             // Установливаем TimeOut, Retry
             stringRequest.setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS, 3, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
@@ -725,7 +730,7 @@ public class Fragment extends androidx.fragment.app.Fragment {
                         setErrorTextAndButton();
                     }
                 });
-                e.printStackTrace();
+                Crashlytics.logException(e);
             }
             return list;
         }
@@ -769,30 +774,28 @@ public class Fragment extends androidx.fragment.app.Fragment {
     private void addFilterButtons() {
         final String[] unique = new HashSet<>(dates).toArray(new String[0]);
         Arrays.sort(unique);
-        if (getActivity() != null) {
-            for (final String title : unique) {
-                final FloatingActionButton fab = new FloatingActionButton(getActivity().getApplication());
-                fab.setColorNormalResId(R.color.colorPrimaryGreen);
-                fab.setColorPressedResId(R.color.colorPrimaryDarkGreen);
-                fab.setTitle(title);
+        for (final String title : unique) {
+            final FloatingActionButton fab = new FloatingActionButton(requireActivity().getApplication());
+            fab.setColorNormalResId(R.color.colorPrimaryGreen);
+            fab.setColorPressedResId(R.color.colorPrimaryDarkGreen);
+            fab.setTitle(title);
 
-                fab.setIconDrawable(new IconicsDrawable(getActivity().getApplication())
-                        .icon(GoogleMaterial.Icon.gmd_date_range)
-                        .color(Color.WHITE)
-                        .sizeDp(24));
-                floatingActionsMenu.addButton(fab);
+            fab.setIconDrawable(new IconicsDrawable(requireActivity().getApplication())
+                    .icon(GoogleMaterial.Icon.gmd_date_range)
+                    .color(Color.WHITE)
+                    .sizeDp(24));
+            floatingActionsMenu.addButton(fab);
 
-                fab.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        showToast(fab.getTitle());
-                        if (adapter != null) {
-                            editText.setText(title);
-                        }
-                        floatingActionsMenu.collapse();
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    showToast(fab.getTitle());
+                    if (adapter != null) {
+                        editText.setText(title);
                     }
-                });
-            }
+                    floatingActionsMenu.collapse();
+                }
+            });
         }
     }
 

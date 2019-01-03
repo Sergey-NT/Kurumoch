@@ -16,8 +16,8 @@ android {
         applicationId "ru.samara.airport.www.kurumoch"
         minSdkVersion 15
         targetSdkVersion 28
-        versionCode 20
-        versionName "1.0.14"
+        versionCode 21
+        versionName "1.0.15"
         multiDexEnabled true
     }
     buildTypes {

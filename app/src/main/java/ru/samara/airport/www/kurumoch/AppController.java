@@ -78,8 +78,15 @@ public class AppController extends Application {
         FixNoClassDefFoundError81083();
         setLocale();
 
+        if(!settings.getBoolean(Constants.APP_PREFERENCES_REST_APP_THEME, false)) {
+            editor.putBoolean(Constants.APP_PREFERENCES_REST_APP_THEME, true);
+            editor.remove(Constants.APP_PREFERENCES_APP_THEME);
+            editor.commit();
+        }
+
         if (!settings.getBoolean(Constants.APP_PREFERENCES_CHANNEL_CREATE_FLAG, false)) {
             editor.putBoolean(Constants.APP_PREFERENCES_CHANNEL_CREATE_FLAG, true);
+            editor.commit();
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 CharSequence name = getString(R.string.channel_name);

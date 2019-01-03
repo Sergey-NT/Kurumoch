@@ -14,6 +14,7 @@ public class Constants {
     static final int TAB_ONE = 0;
     static final int TAB_TWO = 1;
     static final String APP_PREFERENCES_CHANNEL_CREATE_FLAG = "channel_create";
+    static final String APP_PREFERENCES_REST_APP_THEME = "rest_app_theme";
     static final String REGISTRATION_COMPLETE = "registrationComplete";
     static final String APP_PREFERENCES_ADS_DISABLE = "ads_disable";
     static final String APP_PREFERENCES_ADS_DISABLE_PRICE = "ads_price";

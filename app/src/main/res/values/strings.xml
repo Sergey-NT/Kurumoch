@@ -19,7 +19,7 @@
     <string name="about_text">В приложении используются следующие иконки:
         Airplane free icon made by <a href="http://www.flaticon.com/authors/pixel-buddha" title="Pixel Buddha">Pixel Buddha</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
     </string>
-    <string name="about_text_content">Источник данных: <a href="http://www.samara.aero" title="www.samara.aero">www.samara.aero</a></string>
+    <string name="about_text_content">Источник данных: <a href="http://old.kuf.aero" title="old.kuf.aero">old.kuf.aero</a></string>
     <string name="info_route_desc">Маршрут</string>
     <string name="info_route_note_desc">* - в скобках указано время Самары</string>
     <string name="info_airline_desc">Авиакомпания</string>

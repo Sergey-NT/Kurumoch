@@ -9,7 +9,7 @@
     <string name="button_repeat">Try again</string>
     <string name="dialog_title_new_version">New version</string>
     <string name="dialog_title">Info</string>
-    <string name="about_text_content">Data source: <a href="http://www.samara.aero" title="www.samara.aero">www.samara.aero</a></string>
+    <string name="about_text_content">Data source: <a href="http://old.kuf.aero" title="old.kuf.aero">old.kuf.aero</a></string>
     <string name="button_ads_disable_recovery">Restore purchase</string>
     <string name="tabs_item_arrival">Arrival</string>
     <string name="tabs_item_departure">Departure</string>
